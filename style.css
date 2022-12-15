@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(238, 238, 238);
+}
+
+canvas,
+#render3D {
+    border-radius: 0 0.6rem 0.6rem 0;
+}
+
+.titleView {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.hidden{
+    display: none;
+}
+
+#sendBtn{
+    margin-bottom: 1.3rem;
+}
+
+/* img {
+    pointer-events: none;
+} */
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */
+}
+
+.feels{
+    padding: 2%;
+}
+
+.navbar-link{
+    color: #000;
+    text-decoration: none;
+}
+
+.logout-btn {
+    z-index: 1;
+    width: 22%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: #f5f2f2;
+}
+
+.list-view {
+    z-index: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.list-view:hover {
+    cursor: pointer;
+}
+
+.list-view img,
+video {
+    transition: transform .2s; /* Animation */
+    width: 60%;
+    height: 100%;
+    border-radius: 0.8rem;
+    margin-bottom: 0.5%;
+}
+
+/* .list-view img:hover,
+video:hover {
+    transform: scale(1.3);
+} */
+
+.list-view-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-view-title {
+    font: 3rem sans-serif;
+    font-weight: 600;
+    margin-top: 10%;
+    padding-right: 2%;
+}
+
+.list-view-detail {
+    font: 1rem sans-serif;
+    margin-top: 10%;
+    padding-right: 2%;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+
+    .list-view {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-radius: .3rem;
+    }
+}
