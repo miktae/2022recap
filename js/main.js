@@ -28,14 +28,34 @@ function LogOutBtn() {
     )
 }
 
+function DarkModeToggle() {
+    const ChangeTheme = () => {
+        document.body.classList.toggle('dark');
+    }
+
+    return (
+        <div className='changeTheme'>
+            <input type="checkbox" class="checkbox" onChange={ChangeTheme}
+             id="checkbox" />
+                <label for="checkbox" class="label">
+                    <i class="fas fa-moon"></i>
+                    <i class='fas fa-sun'></i>
+                    <div class='ball'></div>
+                </label>
+        </div>
+    )
+}
+
 function NavBar() {
     return (
         <div className="navbar">
             <div className="navbar-header">
                 <a href="./" className="navbar-link">
                     Mik Tae_ 2022 Review
-                </a>
+                </a> 
+               <DarkModeToggle></DarkModeToggle>
             </div>
+          
             <LogOutBtn></LogOutBtn>
         </div>
     )
@@ -431,20 +451,21 @@ function ListView(props) {
             {
                 props.type === 'image'
                     ? <img ref={media}
-                    controlsList="nodownload"
-                    src={props.src}
-                    alt={props.detail}
-                    onContextMenu={(e) => {
-                        e.preventDefault();
-                        return false}}
+                        controlsList="nodownload"
+                        src={props.src}
+                        alt={props.detail}
+                        onContextMenu={(e) => {
+                            e.preventDefault();
+                            return false
+                        }}
                         onWheel={(e) => ZoomOn(e)}
                         onClick={(e) => isTouch(e)} /> :
                     <video controlsList="nodownload" onWheel={(e) => ZoomOn(e)}
                         controls src={props.src}
                         onClick={(e) => isTouch(e)} alt={props.type} />
             }
-            <audio controlsList="nodownload" 
-            ref={audioRef} id={props.id}>
+            <audio controlsList="nodownload"
+                ref={audioRef} id={props.id}>
                 <source src={props.soundURL}
                     type="audio/mpeg" />
                 Your browser does not support the audio element.
@@ -456,6 +477,71 @@ function ListView(props) {
 ListView.defaultProps = {
     soundStartAt: 0,
     type: 'image',
+}
+
+const ThankList = [
+    { Name: 'My family, gd, and my f' },
+    { Name: 'SVMC', logoSrc: 'https://uet.vnu.edu.vn/wp-content/uploads/2022/02/45163700_554629941631875_2774204017406902272_n.jpg' },
+    { Name: 'ImaxTOEIC', logoSrc: `../assets/logos/ImaxTOEIC.png` },
+    { Name: 'The IELTS Workshop', logoSrc: `https://onthiielts.com.vn/wp-content/uploads/2019/04/tiw-logo.png` },
+    { Name: 'IIG', logoSrc: '../assets/logos/iig.png' },
+    { Name: 'ETS', logoSrc: '../assets/logos/ets.png' },
+    { Name: 'Rocket Studio', logoSrc: '../assets/logos/rocket.png' },
+    { Name: 'Korean Cultural Center', logoSrc: '../assets/logos/kcenter.jpg' },
+    { Name: 'MultiMedia JSC', logoSrc: '../assets/logos/multi.jpg' },
+    { Name: 'VinUni', logoSrc: '../assets/logos/vinu.png' },
+    { Name: 'HAUI', logoSrc: '../assets/logos/haui.png' },
+    { Name: 'NEU', logoSrc: '../assets/logos/neu.png' },
+    { Name: 'BachKhoaTech', logoSrc: '../assets/logos/bachkhoatech.webp' },
+    { Name: 'Le V. Minh' },
+    { Name: 'Le T. Thanh' },
+    { Name: 'Le T. Quan' },
+    { Name: 'Le V. Quan' },
+    { Name: 'Duong V. Hai' },
+    { Name: 'Pham V. Nam' },
+    { Name: 'Pham V. Toan' },
+    { Name: 'Ng V. Hoang' },
+    { Name: 'Ng D. Tung' },
+    { Name: 'Do D. Duong' },
+    { Name: 'Bui Q. Viet' },
+    { Name: 'Minh Chau' },
+    { Name: 'Dinh X. Minh' },
+    { Name: 'Au D. Giang' },
+    { Name: 'Ng X. Nhat' },
+    { Name: 'Ng V. Tuan' },
+    { Name: 'Jenni Pham' },
+    { Name: 'Hoang Tr. Tuan' },
+    { Name: 'Ng M. Hieu' },
+    { Name: 'Hoa Bui' },
+    { Name: 'Ng H. Ha' },
+    { Name: 'Suk J. Won' },
+    { Name: 'J. Orlando' },
+    { Name: 'Ng A. Dung' },
+    { Name: 'Suk J. Young' },
+    { Name: 'Others' },
+]
+function ThankFor(props) {
+    let thanks = React.useRef()
+
+    setInterval(() => {
+        k -= 0.012
+        if (thanks.current)
+            thanks.current.style.transform = "translateY(" + k + "px"
+    }, 10)
+
+    return (
+        <div ref={thanks} className="thanks-view">
+            <p style={{
+                fontSize: '2em'
+            }}>Thanks for </p>
+            {props.logoSrc && <img style={{
+                width: '60%',
+            }} src={props.logoSrc} alt={props.Name} />}
+            <p className="thanks-text">
+                {props.Name}
+            </p>
+        </div>
+    )
 }
 
 function App() {
@@ -472,7 +558,12 @@ function App() {
                     type={s.type} velocity={s.velocity}
                     detail={s.detail} src={s.src} />))
             }
-            
+            {
+                ThankList.map((t, i) => (
+                    <ThankFor key={i} Name={t.Name}
+                        logoSrc={t.logoSrc} />
+                ))
+            }
         </div>
     )
 }

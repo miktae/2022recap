@@ -34,11 +34,11 @@ canvas,
     background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-#sendBtn{
+#sendBtn {
     margin-bottom: 1.3rem;
 }
 
@@ -47,22 +47,27 @@ canvas,
 } */
 
 video::-internal-media-controls-download-button {
-    display:none;
+    display: none;
 }
 
 video::-webkit-media-controls-enclosure {
-    overflow:hidden;
+    overflow: hidden;
 }
 
 video::-webkit-media-controls-panel {
-    width: calc(100% + 30px); /* Adjust as needed */
+    width: calc(100% + 30px);
+    /* Adjust as needed */
 }
 
-.feels{
+.feels {
     padding: 2%;
 }
 
-.navbar-link{
+.navbar {
+    z-index: 1;
+}
+
+.navbar-link {
     color: #000;
     text-decoration: none;
 }
@@ -89,11 +94,23 @@ video::-webkit-media-controls-panel {
 
 .list-view img,
 video {
-    transition: transform .2s; /* Animation */
+    transition: transform .2s;
+    /* Animation */
     width: 60%;
     height: 100%;
     border-radius: 0.8rem;
     margin-bottom: 0.5%;
+}
+
+.thanks-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thanks-text {
+    font: 1.3em sans-serif;
+    font-weight: 600;
 }
 
 /* .list-view img:hover,
@@ -134,4 +151,59 @@ video:hover {
     .gradient-custom-2 {
         border-radius: .3rem;
     }
+}
+
+body.dark{
+    background-color: #121212;
+    color: #fff;
+}
+
+.changeTheme {
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+    border:rgb(238, 238, 238);
+}
+
+.label {
+    width: 50px;
+    height: 26px;
+    background-color: #111;
+    display: flex;
+    border:rgb(255, 253, 253) 0.2px solid;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    position: relative;
+    transform: scale(1.5);
+}
+
+.ball {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked+.label .ball {
+    transform: translateX(24px);
+}
+
+.fa-moon {
+    color: whitesmoke;
+}
+
+.fa-sun {
+    color: yellow;
 }
