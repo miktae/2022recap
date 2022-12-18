@@ -67,9 +67,13 @@ video::-webkit-media-controls-panel {
     z-index: 1;
 }
 
-.navbar-link {
+.link {
     color: #000;
     text-decoration: none;
+}
+
+.link.dark {
+    color: #fff;
 }
 
 .logout-btn {

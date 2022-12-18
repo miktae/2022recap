@@ -31,6 +31,7 @@ function LogOutBtn() {
 function DarkModeToggle() {
     const ChangeTheme = () => {
         document.body.classList.toggle('dark');
+        document.querySelector('.link').classList.toggle('dark');
     }
 
     return (
@@ -50,7 +51,7 @@ function NavBar() {
     return (
         <div className="navbar">
             <div className="navbar-header">
-                <a href="./" className="navbar-link">
+                <a href="./" className="link">
                     Mik Tae_ 2022 Review
                 </a> 
                <DarkModeToggle></DarkModeToggle>
