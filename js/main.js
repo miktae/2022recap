@@ -65,7 +65,7 @@ const source = [
     {
         type: 'image',
         title: 'Dreams of Love',
-        soundURL: '../assets/sounds/DoanKetMoi.mp3',
+        soundURL: './assets/sounds/DoanKetMoi.mp3',
         soundStartAt: 21,
         // transform: 'X',
         detail:
@@ -73,13 +73,13 @@ const source = [
              Đúng là đi chùa Hà rất hợp lý cho người ế lâu như tôi...
             `,
         velocity: 0.001,
-        src: '../assets/LuvDream/0.jpg'
+        src: './assets/LuvDream/0.jpg'
     },
     {
         type: 'image',
         title: 'Đại hội Thể thao Đông Nam Á 2022 (2022 Southeast Asian Games)',
         // transform: 'X',
-        soundURL: '../assets/sounds/Let_sShine.mp3',
+        soundURL: './assets/sounds/Let_sShine.mp3',
         soundStartAt: 46,
         detail:
             `SEA Games 31 là một sự kiện thể thao đa môn diễn ra ở Hà Nội,
@@ -91,11 +91,11 @@ const source = [
                Thế vận hội.
             `,
         velocity: 0.001,
-        src: '../assets/SEAGAMES/0.jpg'
+        src: './assets/SEAGAMES/0.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Let_sShine.mp3',
+        soundURL: './assets/sounds/Let_sShine.mp3',
         soundStartAt: 54,
         // transform: 'X',
         detail:
@@ -103,11 +103,11 @@ const source = [
             cho sự kiện quy mô khu vực này. 
             `,
         velocity: 0.001,
-        src: '../assets/SEAGAMES/1.jpg'
+        src: './assets/SEAGAMES/1.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Let_sShine.mp3',
+        soundURL: './assets/sounds/Let_sShine.mp3',
         soundStartAt: 62,
         // transform: 'X',
         detail:
@@ -115,7 +115,7 @@ const source = [
             được chia sẻ nền văn hóa Việt. 
             `,
         velocity: 0.001,
-        src: '../assets/SEAGAMES/2.jpg'
+        src: './assets/SEAGAMES/2.jpg'
     },
     {
         type: 'video',
@@ -126,22 +126,22 @@ const source = [
             :))) Báo chí chụp chứ tôi không giữ ảnh. 
             `,
         velocity: 0.001,
-        src: '../assets/SEAGAMES/3.mp4'
+        src: './assets/SEAGAMES/3.mp4'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Let_sShine.mp3',
+        soundURL: './assets/sounds/Let_sShine.mp3',
         soundStartAt: 70,
         // transform: 'X',
         detail:
             `Giấy chứng nhận 🤗
             `,
         velocity: 0.001,
-        src: '../assets/SEAGAMES/Cer.png'
+        src: './assets/SEAGAMES/Cer.png'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/YetToCome.mp3',
+        soundURL: './assets/sounds/YetToCome.mp3',
         soundStartAt: 24,
         title: 'TOEIC',
         // transform: 'X',
@@ -157,7 +157,7 @@ const source = [
     },
     {
         type: 'video',
-        soundURL: '../assets/sounds/YetToCome.mp3',
+        soundURL: './assets/sounds/YetToCome.mp3',
         soundStartAt: 30,
         title: 'Nghiên cứu khoa học',
 
@@ -168,11 +168,11 @@ trong phân loại hoa quả, nhóm tôi đã đoạt giài Nhì cấp trường
 Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
             `,
         velocity: 0.001,
-        src: '../assets/NCKH/1.mp4'
+        src: './assets/NCKH/1.mp4'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/YetToCome.mp3',
+        soundURL: './assets/sounds/YetToCome.mp3',
         soundStartAt: 36,
         title: 'Nghiên cứu khoa học',
         // transform: 'X',
@@ -180,20 +180,19 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
             `Code khó vô cùng khi kết hợp PLC, Python và lập trình Web
             `,
         velocity: 0.001,
-        src: '../assets/NCKH/1.jpg'
+        src: './assets/NCKH/1.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/YetToCome.mp3',
+        soundURL: './assets/sounds/YetToCome.mp3',
         soundStartAt: 42,
         // transform: 'X',
         velocity: 0.001,
-        src: '../assets/NCKH/Cer.jpg'
+        src: './assets/NCKH/Cer.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/SamSungIntern/',
-        soundURL: '../assets/sounds/Dreamers.mp3',
+        soundURL: './assets/sounds/Dreamers.mp3',
         soundStartAt: 18,
         title: 'SAMSUNG SVMC – CHƯƠNG TRÌNH THỰC TẬP SINH KỲ HÈ 2022',
         // transform: 'X',
@@ -203,11 +202,11 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
              được đào tạo và tham gia làm các mini-project với các sản phẩm đầu ra cụ thể trên nền tảng Android hoặc C/C++ Application.
             Ngoài ra, sinh viên cũng được tham gia trải nghiệm văn hóa làm việc của một trung tâm công nghệ hàng đầu của Samsung, được hướng dẫn về các kỹ năng cần thiết trên Microsoft office. `,
         velocity: 0.001,
-        src: '../assets/SamSungIntern/Paper.jpg'
+        src: './assets/SamSungIntern/Paper.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Dreamers.mp3',
+        soundURL: './assets/sounds/Dreamers.mp3',
         soundStartAt: 24,
         detail:
             `Tôi đã có cơ hội thực tập với các bạn UET, PTIT, ... 
@@ -216,16 +215,16 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
             Vì lý do bảo mật,
             nên hơi ít hình ảnh :))) `,
         velocity: 0.01,
-        src: '../assets/SamSungIntern/Costume.jpg'
+        src: './assets/SamSungIntern/Costume.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Dreamers.mp3',
+        soundURL: './assets/sounds/Dreamers.mp3',
         soundStartAt: 30,
         detail:
             ` Bài Test khó vô cùng`,
         velocity: 0.01,
-        src: '../assets/SamSungIntern/TestR.jpg'
+        src: './assets/SamSungIntern/TestR.jpg'
     },
     {
         type: 'image',
@@ -234,21 +233,21 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
             với tập đoàn hàng đầu thế giới.
             Cảm ơn anh, chị SVMC ^^ `,
         velocity: 0.01,
-        src: '../assets/SamSungIntern/Cer.jpg'
+        src: './assets/SamSungIntern/Cer.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Sad.mp3',
+        soundURL: './assets/sounds/Sad.mp3',
         title: 'Sự mất mát đầu tiên',
         detail:
             `Tuy vậy, trong kỳ thực tập tôi phải chứng kiến cảnh đám tang
             của người Bác yêu thương. 😔`,
         velocity: 0.01,
-        src: '../assets/Funeral/1.jpg'
+        src: './assets/Funeral/1.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/MOS/sound.mp3',
+        soundURL: './assets/MOS/sound.mp3',
         title: 'MOS (Microsoft Office Specialist)',
         // transform: 'X',
         detail:
@@ -256,11 +255,11 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
             Bài thi MOS được thực hiện trực tuyến trên 27 ngôn ngữ và đã được Việt hóa, với trung bình 280.000 bài thi mỗi tháng được tổ chức thông qua hơn 12.000 trung tâm được ủy quyền chính thức của Certiport.
             Chứng chỉ MOS do chính Tổng Giám đốc Microsoft ký tên và có giá trị vô thời hạn trên toàn cầu. Tại Việt Nam, Chứng chỉ MOS đã được Bộ Thông tin và Truyền thông công nhận tương đương chuẩn kỹ năng CNTT nâng cao quy định trong thông tư 03/BTTTT-CNTT của Bộ Thông tin và Truyền thông.. `,
         velocity: 0.001,
-        src: '../assets/MOS/W.jpg'
+        src: './assets/MOS/W.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/MOS/sound.mp3',
+        soundURL: './assets/MOS/sound.mp3',
         // transform: 'X',
         detail:
             `Cảm ơn Trung tâm 
@@ -269,11 +268,11 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         link: 'http://10education.vn/',
         linkText: 'Trung tâm 10Education',
         velocity: 0.01,
-        src: '../assets/MOS/E.jpg'
+        src: './assets/MOS/E.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Sad.mp3',
+        soundURL: './assets/sounds/Sad.mp3',
         title: 'My grandmother had gone',
         // transform: 'X',
         detail:
@@ -284,78 +283,78 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
              hôm để chỉ bài con họ, đúng là đồ mất não.
             `,
         velocity: 0.001,
-        src: '../assets/Funeral/2.jpg'
+        src: './assets/Funeral/2.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Fashion.mp3',
+        soundURL: './assets/sounds/Fashion.mp3',
         title: ' Aquafina Vietnam International Fashion Week Fall/Winter (AVIFW 2022) ',
         // transform: 'X',
         detail:
             `Với chủ đề TasteOfHeritage - Cảm hứng di sản, show diễn lớn nhất làng thời trang Việt Nam dịp cuối năm Tuần lễ Thời trang Quốc tế Việt Nam Thu Đông 2022 - Aquafina Vietnam International Fashion Week Fall/Winter (AVIFW 2022). 
         Được nhận định là một trong những Tuần lễ Thời trang quốc tế đứng đầu khu vực Đông Nam Á và đứng thứ 4 châu Á chỉ sau Tokyo, Seoul và Shanghai International fashion week, AVIFW 2022 được ví như cầu nối giữa xu hướng thời trang Việt Nam và thế giới. `,
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/main.jpg'
+        src: './assets/AFIFW_2022/main.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Fashion.mp3',
+        soundURL: './assets/sounds/Fashion.mp3',
         detail:
             `Tôi may mắn có cơ hội tham gia chương trình với 
         tư cách Cộng tác viên Sản Xuất. Đóng góp dàn dựng sân khấu, kịch bản
          và các công việc hiện trường`,
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/zalo.png'
+        src: './assets/AFIFW_2022/zalo.png'
     },
     {
         type: 'video',
-        soundURL: '../assets/sounds/Fashion.mp3',
+        soundURL: './assets/sounds/Fashion.mp3',
         detail: `Cùng hợp tác với Multi Media JSC, Bùi Minh Tiến. 
         Được gặp gỡ những người mẫu, diễn viên, người nổi tiếng như Mạc
         Trung Kiên, H'Hen Niê,Võ Hoàng Yến, 
          Nguyễn Minh Kha,Hoài Anh, 
          Xuân Lan, Khánh Vân, ...`,
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/mactrungkien.mp4'
+        src: './assets/AFIFW_2022/mactrungkien.mp4'
     },
     {
         type: 'video',
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/hhnie_catwalk.mp4'
+        src: './assets/AFIFW_2022/hhnie_catwalk.mp4'
     },
     {
         type: 'video',
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/mk.mp4'
+        src: './assets/AFIFW_2022/mk.mp4'
     },
     {
         type: 'video',
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/ha.mp4'
+        src: './assets/AFIFW_2022/ha.mp4'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Fashion.mp3',
-        soundURL: '../assets/sounds/Fashion.mp3',
+        soundURL: './assets/sounds/Fashion.mp3',
+        soundURL: './assets/sounds/Fashion.mp3',
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/se.jpg'
+        src: './assets/AFIFW_2022/se.jpg'
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/Fashion.mp3',
+        soundURL: './assets/sounds/Fashion.mp3',
         velocity: 0.01,
-        src: '../assets/AFIFW_2022/cer.png',
+        src: './assets/AFIFW_2022/cer.png',
         stopSound: true
     },
     {
         type: 'image',
-        soundURL: '../assets/sounds/YetToCome.mp3',
+        soundURL: './assets/sounds/YetToCome.mp3',
         title: 'Hum...',
         detail: `Năm nay, cũng có kỳ thực tập tại trường. Dù rất muốn
         làm việc tại các công ty phúc lợi tốt nhưng lại xa xôi địa lý và 
         gia đình ngăn cấm`,
         velocity: 0.01,
-        src: '../assets/Career/foxconn.jpg',
+        src: './assets/Career/foxconn.jpg',
         stopSound: true
     },
     {
@@ -364,9 +363,9 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         detail: `Năm nay, cũng có kỳ thực tập tại trường. Dù rất muốn
         làm việc tại các công ty phúc lợi tốt nhưng lại xa xôi địa lý và 
         gia đình ngăn cấm`,
-        soundURL: '../assets/sounds/YetToCome.mp3',
+        soundURL: './assets/sounds/YetToCome.mp3',
         velocity: 0.01,
-        src: '../assets/Career/lginnotek.jpg',
+        src: './assets/Career/lginnotek.jpg',
     },
 ]
 
@@ -482,17 +481,17 @@ ListView.defaultProps = {
 const ThankList = [
     { Name: 'My family, gd, and my f' },
     { Name: 'SVMC', logoSrc: 'https://uet.vnu.edu.vn/wp-content/uploads/2022/02/45163700_554629941631875_2774204017406902272_n.jpg' },
-    { Name: 'ImaxTOEIC', logoSrc: `../assets/logos/ImaxTOEIC.png` },
+    { Name: 'ImaxTOEIC', logoSrc: `./assets/logos/ImaxTOEIC.png` },
     { Name: 'The IELTS Workshop', logoSrc: `https://onthiielts.com.vn/wp-content/uploads/2019/04/tiw-logo.png` },
-    { Name: 'IIG', logoSrc: '../assets/logos/iig.png' },
-    { Name: 'ETS', logoSrc: '../assets/logos/ets.png' },
-    { Name: 'Rocket Studio', logoSrc: '../assets/logos/rocket.png' },
-    { Name: 'Korean Cultural Center', logoSrc: '../assets/logos/kcenter.jpg' },
-    { Name: 'MultiMedia JSC', logoSrc: '../assets/logos/multi.jpg' },
-    { Name: 'VinUni', logoSrc: '../assets/logos/vinu.png' },
-    { Name: 'HAUI', logoSrc: '../assets/logos/haui.png' },
-    { Name: 'NEU', logoSrc: '../assets/logos/neu.png' },
-    { Name: 'BachKhoaTech', logoSrc: '../assets/logos/bachkhoatech.webp' },
+    { Name: 'IIG', logoSrc: './assets/logos/iig.png' },
+    { Name: 'ETS', logoSrc: './assets/logos/ets.png' },
+    { Name: 'Rocket Studio', logoSrc: './assets/logos/rocket.png' },
+    { Name: 'Korean Cultural Center', logoSrc: './assets/logos/kcenter.jpg' },
+    { Name: 'MultiMedia JSC', logoSrc: './assets/logos/multi.jpg' },
+    { Name: 'VinUni', logoSrc: './assets/logos/vinu.png' },
+    { Name: 'HAUI', logoSrc: './assets/logos/haui.png' },
+    { Name: 'NEU', logoSrc: './assets/logos/neu.png' },
+    { Name: 'BachKhoaTech', logoSrc: './assets/logos/bachkhoatech.webp' },
     { Name: 'Le V. Minh' },
     { Name: 'Le T. Thanh' },
     { Name: 'Le T. Quan' },
