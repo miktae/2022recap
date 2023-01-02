@@ -42,7 +42,7 @@ goBtn.onclick = () => {
                     })
                     .then(() => {
                         console.log("Document written with ID: ", docRef.id);
-                        window.location.href = './'
+                        window.location.href = './faceRecog.html'
                     })
             } catch (e) {
                 console.error("Error adding document: ", e);

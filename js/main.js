@@ -368,6 +368,33 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         velocity: 0.01,
         src: './assets/Career/lginnotek.jpg',
     },
+    {
+        type: 'image',
+        title: "FPT Software Development and Trip",
+        lastView: true,
+        detail: `Tập đoàn FPT với chương trình HolaPark, tài trợ toàn phần
+         FreeCodeCamp trị giá 2x triệu `,
+        soundURL: './assets/sounds/YetToCome.mp3',
+        velocity: 0.01,
+        src: './assets/HolaPark/View.jpg',
+    },
+    {
+        type: 'video',
+        lastView: true,
+        detail: `PTIT đi đâu cũng gặp :))) `,
+        soundURL: './assets/sounds/YetToCome.mp3',
+        velocity: 0.01,
+        src: './assets/HolaPark/r.mp4',
+    },
+    {
+        type: 'image',
+        lastView: true,
+        detail: `Được gặp gỡ, kết giao các chuyên gia lớn của Google
+        , Meta, ... `,
+        soundURL: './assets/sounds/YetToCome.mp3',
+        velocity: 0.01,
+        src: './assets/HolaPark/f.jpg',
+    },
 ]
 
 let k = 10
@@ -485,6 +512,7 @@ const ThankList = [
     { Name: 'ImaxTOEIC', logoSrc: `./assets/logos/ImaxTOEIC.png` },
     { Name: 'The IELTS Workshop', logoSrc: `https://onthiielts.com.vn/wp-content/uploads/2019/04/tiw-logo.png` },
     { Name: 'IIG', logoSrc: './assets/logos/iig.png' },
+    { Name: 'FPT Software', logoSrc: 'https://www.fpt-software.com/wp-content/uploads/sites/2/2017/06/logofsoft.png' },
     { Name: 'ETS', logoSrc: './assets/logos/ets.png' },
     { Name: 'Rocket Studio', logoSrc: './assets/logos/rocket.png' },
     { Name: 'Korean Cultural Center', logoSrc: './assets/logos/kcenter.jpg' },
