@@ -1,37 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Face detection</title>
   <style>
-    body {
-     margin: 0;
-     padding: 0;
-     width: 100vw;
-     height: 100vh;
+    video {
+      width: 30%;
+      margin: 3%;
     }
-    button{
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    button {
       padding: 0.5rem;
+      height: 2rem;
       cursor: pointer;
       margin-left: 2rem;
       text-align: center;
     }
-    canvas{
-      width: 80%;
+
+    .loading {
+      /* Light grey */
+      border-top: 0.3em solid #3487db;
+      /* Blue */
+      border-radius: 50%;
+      width: 6rem;
+      height: 6rem;
+      animation: spin 2s linear infinite;
+      text-align: center;
+      margin-left: 43%;
     }
-    video{
-      margin-top: 1%;
-      margin-left: 3%;
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
+
+    .none {
+      display: none;
+    }
+
   </style>
 </head>
+
 <body>
-  <video id="video" width="400" height="300" autoplay muted></video>
-  <button id="takePhotoBtn">Take a photo</button>
-   <canvas id="canvas" style="display: none; overflow:auto"></canvas>
+  <div class="loading" id="loading">
+
+  </div>
+  <video class="none" id="video" autoplay></video>
+  <button class="none" id="takePhotoBtn">Take a photo</button>
+  <canvas id="canvas" style="display: none; overflow:auto"></canvas>
   <script defer src="./js/face-api.min.js"></script>
   <script type="module" defer src="./js/recog.js"></script>
 </body>
+
 </html>

@@ -1,4 +1,7 @@
 const root = ReactDOM.createRoot(document.querySelector('#main'));
+const video = document.getElementById('webcam');
+const liveView = document.getElementById('liveView');
+
 const LogOut = () => {
     sessionStorage.removeItem('uid')
     location.reload();
@@ -37,12 +40,12 @@ function DarkModeToggle() {
     return (
         <div className='changeTheme'>
             <input type="checkbox" class="checkbox" onChange={ChangeTheme}
-             id="checkbox" />
-                <label for="checkbox" class="label">
-                    <i class="fas fa-moon"></i>
-                    <i class='fas fa-sun'></i>
-                    <div class='ball'></div>
-                </label>
+                id="checkbox" />
+            <label for="checkbox" class="label">
+                <i class="fas fa-moon"></i>
+                <i class='fas fa-sun'></i>
+                <div class='ball'></div>
+            </label>
         </div>
     )
 }
@@ -53,10 +56,10 @@ function NavBar() {
             <div className="navbar-header">
                 <a href="./" className="link">
                     Mik Tae_ 2022 Review
-                </a> 
-               <DarkModeToggle></DarkModeToggle>
+                </a>
+                <DarkModeToggle></DarkModeToggle>
             </div>
-          
+
             <LogOutBtn></LogOutBtn>
         </div>
     )
@@ -73,7 +76,7 @@ const source = [
             `Trong năm nay, tôi đã gặp được một người đáng yêu. 
              Đúng là đi chùa Hà rất hợp lý cho người ế lâu như tôi...
             `,
-        velocity: 0.001,
+        velocity: 0.01,
         src: './assets/LuvDream/0.jpg'
     },
     {
@@ -555,7 +558,7 @@ function ThankFor(props) {
         k -= 0.012
         if (thanks.current)
             thanks.current.style.transform = "translateY(" + k + "px"
-    }, 10)
+    }, 2)
 
     return (
         <div ref={thanks} className="thanks-view">
@@ -572,6 +575,7 @@ function ThankFor(props) {
     )
 }
 
+
 function App() {
     return (
         <div className="container-fluid">
@@ -583,7 +587,7 @@ function App() {
                     soundStartAt={s.soundStartAt}
                     lastView={s.lastView}
                     link={s.link} linkText={s.linkText}
-                    type={s.type} velocity={s.velocity}
+                    type={s.type} velocity={0.1}
                     detail={s.detail} src={s.src} />))
             }
             {
@@ -596,6 +600,157 @@ function App() {
     )
 }
 
+function Modal() {
+    return (
+        <div className="modal-container">
+            <h1>Reminder Modal - Hộp nhắc nhở</h1>
+            <ol>
+                <li>
+                    Vì lý do bảo mật và riêng tư,
+                    yêu cầu bạn không rời khỏi trang web trong quá trình xem
+                </li>
+                <li>Vì lý đảm bảo bảo mật, quyền riêng tư,
+                    yêu cầu bạn không sử dụng các thiết bị ghi hình,
+                    quay video(điện thoại, camera, ...)</li>
+                <li>Không sao chép dưới mọi hình thức</li>
+            </ol>
+            <ol>
+                <li>
+                    For security and privacy reasons,
+                    you are requested not to leave the site during viewing
+                </li>
+                <li>For security and privacy reasons,
+                    do not use recording and video recording devices (phones, cameras, ...)</li>
+                <li>Do not copy in any form</li>
+            </ol>
+            <ol>
+                <li>
+                    出于安全和隐私原因，请您在浏览期间不要离开网站
+                </li>
+                <li>出于安全和隐私原因，
+                    我们要求您不要使用录音和录像设备（电话、相机、...）</li>
+                <li>请勿以任何形式复制</li>
+            </ol>
+            <ol>
+                <li>
+                    セキュリティおよびプライバシー上の理由から、
+                    閲覧中にサイトを離れないでください。
+                </li>
+                <li>セキュリティとプライバシー上の理由から、
+                    録音およびビデオ録画デバイス (電話、カメラなど) を使用しないでください。</li>
+                <li>いかなる形式でもコピーしないでください</li>
+            </ol>
+            <ol>
+                <li>
+                    Por motivos de segurança e privacidade,
+                    solicitamos que você não saia do site durante a visualização
+                </li>
+                <li>Por questões de segurança e privacidade, pedimos que não utilizem
+                    dispositivos de gravação e gravação de vídeo (telefones, câmeras, ...)</li>
+                <li>いNão copie de nenhuma forma</li>
+            </ol>
+        </div>
+    )
+}
+
+// Check if webcam access is supported.
+function getUserMediaSupported() {
+    return !!(navigator.mediaDevices &&
+        navigator.mediaDevices.getUserMedia);
+}
+
+// If webcam supported, add event listener to button for when user
+// wants to activate it to call enableCam function which we will 
+// define in the next step.
+if (!getUserMediaSupported()) {
+    console.warn('getUserMedia() is not supported by your browser');
+}
+
+// Placeholder function for next step. Paste over this in the next step.
+function enableCam() {
+    // Only continue if the COCO-SSD has finished loading.
+    if (!model) {
+        return;
+    }
+    // getUsermedia parameters to force video but not audio.
+    const constraints = {
+        video: true
+    };
+
+    // Activate the webcam stream.
+    navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        video.srcObject = stream;
+        video.addEventListener('loadeddata', predictWebcam);
+    });
+}
+
+// Store the resulting model in the global scope of our app.
+var model = true;
+
+// Before we can use COCO-SSD class we must wait for it to finish
+// loading. Machine Learning models can be large and take a moment 
+// to get everything needed to run.
+// Note: cocoSsd is an external object loaded from our index.html
+// script tag import so ignore any warning in Glitch.
+cocoSsd.load().then(function (loadedModel) {
+    model = loadedModel;
+});
+
+var children = [];
+var Camera = false;
+
+function predictWebcam() {
+    // Now let's start classifying a frame in the stream.
+    model.detect(video).then(function (predictions) {
+        // Remove any highlighting we did previous frame.
+        for (let i = 0; i < children.length; i++) {
+            liveView.removeChild(children[i]);
+        }
+        children.splice(0);
+
+        // Now lets loop through predictions and draw them to the live view if
+        // they have a high confidence score.
+        for (let n = 0; n < predictions.length; n++) {
+            // If we are over 66% sure we are sure we classified it right, draw it!
+            if (predictions[n].score > 0.6) {
+
+                if (predictions[n].class == "cell phone") {
+                    root.render(
+                        <React.StrictMode>
+                            <Modal />
+                        </React.StrictMode>);
+                }
+
+                const p = document.createElement('p');
+                p.innerText = predictions[n].class + ' - with '
+                    + Math.round(parseFloat(predictions[n].score) * 100)
+                    + '% confidence.';
+                p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
+                    + (predictions[n].bbox[1] - 10) + 'px; width: '
+                    + (predictions[n].bbox[2] - 10) + 'px; top: 0; left: 0;';
+
+                const highlighter = document.createElement('div');
+                highlighter.setAttribute('class', 'highlighter');
+                highlighter.style = 'left: ' + predictions[n].bbox[0] + 'px; top: '
+                    + predictions[n].bbox[1] + 'px; width: '
+                    + predictions[n].bbox[2] + 'px; height: '
+                    + predictions[n].bbox[3] + 'px;';
+
+                liveView.appendChild(highlighter);
+                liveView.appendChild(p);
+                children.push(highlighter);
+                children.push(p);
+            }
+        }
+        // Call this function again to keep predicting when the browser is ready.
+        requestAnimationFrame(predictWebcam);
+    });
+}
+
+onload = () => {
+    enableCam();
+}
+
 if (!sessionStorage.getItem("uid")) {
     alert('Please Log In')
     window.location.href = './login.html'
@@ -604,6 +759,23 @@ if (!sessionStorage.getItem("uid")) {
 else {
     root.render(
         <React.StrictMode>
-            <App />
+            <Modal />
         </React.StrictMode>);
+
+    setInterval(() => {
+        root.render(<React.StrictMode>
+            <App />
+        </React.StrictMode>)
+    }, 10000);
 }
+
+document.body.addEventListener("mouseleave", function (event) {
+    if (event.clientY <= 0 || event.clientX <= 0
+        || (event.clientX >= window.innerWidth
+            || event.clientY >= window.innerHeight)) {
+        // root.render(
+        //     <React.StrictMode>
+        //         <Modal />
+        //     </React.StrictMode>);
+    }
+});

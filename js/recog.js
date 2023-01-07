@@ -6,15 +6,20 @@ import { storage } from './firebase.js'
 const video = document.getElementById('video')
 
 Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-    faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-    faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-    faceapi.nets.ageGenderNet.loadFromUri('/models'),
-    faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
-    faceapi.nets.faceExpressionNet.loadFromUri('/models')
+    faceapi.nets.tinyFaceDetector.loadFromUri('../models'),
+    faceapi.nets.faceLandmark68Net.loadFromUri('../models'),
+    faceapi.nets.faceRecognitionNet.loadFromUri('../models'),
+    faceapi.nets.ageGenderNet.loadFromUri('../models'),
+    faceapi.nets.ssdMobilenetv1.loadFromUri('../models'),
+    faceapi.nets.faceExpressionNet.loadFromUri('../models')
 ]).then(startVideo)
 
 function startVideo() {
+  document.getElementById('loading').classList.add('none')
+  document.getElementById('canvas').classList.remove('none')
+  document.getElementById('video').classList.remove('none')
+  document.getElementById('takePhotoBtn').classList.remove('none')
+
   navigator.getUserMedia(
     { video: {} },
     stream => video.srcObject = stream,
