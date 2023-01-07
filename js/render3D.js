@@ -69,7 +69,7 @@ function animate() {
     // rotX += 10
     rotY -= 0.001
     // rotZ += 10
-    Load3Dmodels('login.glb', 1.2, 0, -2, 0)
+    Load3Dmodels('../login.glb', 1.2, 0, -2, 0)
     requestAnimationFrame(animate)
     renderCalls.forEach((callback) => { callback(); });
     renderer.render(scene, camera)
