@@ -167,8 +167,8 @@ const source = [
 
         // transform: 'X',
         detail:
-            `Với chủ đề sử dụng Xử lý ảnh và Trí tuệ nhân tạo 
-trong phân loại hoa quả, nhóm tôi đã đoạt giài Nhì cấp trường.
+            `Với chủ đề sử dụng Xử lý ảnh, Trí tuệ nhân tạo 
+trong phân loại hoa quả, nhóm tôi đã đoạt giải Nhì cấp trường.
 Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
             `,
         velocity: 0.001,
@@ -283,11 +283,25 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
             `Trong năm nay, tôi laị thêm lần nữa chứng kiến
             cảnh mất người thân. Đó là người bà đáng kính của tôi.
              Haizz.... tuy vậy, đây cũng có lẽ giai đoạn buồn nhất,
-             công ty MindX với khách hàng hãm còn ép gọi điện đêm 
+             công ty M, với khách hàng hãm còn ép gọi điện đêm 
              hôm để chỉ bài con họ, đúng là đồ mất não.
             `,
         velocity: 0.001,
         src: './assets/Funeral/2.jpg'
+    },
+    {
+        type: 'image',
+        soundURL: './assets/sounds/Sad.mp3',
+        title: 'Những thất bại...',
+        // transform: 'X',
+        detail:
+            `Trong năm nay, cũng có những sự thất bại, trượt
+            học bổng danh giá SamSung(STP 2022), thi trượt Olympic 
+            Lý, trượt PanaSonic...
+             Và một số điều thật sự nuối tiếc...
+            `,
+        velocity: 0.001,
+        src: './assets/Carreer/stp.jpg'
     },
     {
         type: 'image',
@@ -370,6 +384,14 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         soundURL: './assets/sounds/YetToCome.mp3',
         velocity: 0.01,
         src: './assets/Career/lginnotek.jpg',
+    },
+    {
+        type: 'image',
+        lastView: true,
+        detail: `Job khác có review không tốt`,
+        soundURL: './assets/sounds/YetToCome.mp3',
+        velocity: 0.01,
+        src: './assets/Career/hcl.jpg',
     },
     {
         type: 'image',
@@ -647,7 +669,7 @@ function Modal() {
                 </li>
                 <li>Por questões de segurança e privacidade, pedimos que não utilizem
                     dispositivos de gravação e gravação de vídeo (telefones, câmeras, ...)</li>
-                <li>いNão copie de nenhuma forma</li>
+                <li>Não copie de nenhuma forma</li>
             </ol>
         </div>
     )
@@ -773,9 +795,27 @@ document.body.addEventListener("mouseleave", function (event) {
     if (event.clientY <= 0 || event.clientX <= 0
         || (event.clientX >= window.innerWidth
             || event.clientY >= window.innerHeight)) {
-        // root.render(
-        //     <React.StrictMode>
-        //         <Modal />
-        //     </React.StrictMode>);
+        root.render(
+            <React.StrictMode>
+                <Modal />
+            </React.StrictMode>);
+    }
+});
+
+/** TO DISABLE SCREEN CAPTURE **/
+document.addEventListener('keyup', (e) => {
+    if (e.key == 'PrintScreen') {
+        navigator.clipboard.writeText('');
+        alert('Screenshots disabled!');
+    }
+});
+
+/** TO DISABLE PRINTS WHIT CTRL+P **/
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key == 'p') {
+        alert('This section is not allowed to print or export to PDF');
+        e.cancelBubble = true;
+        e.preventDefault();
+        e.stopImmediatePropagation();
     }
 });

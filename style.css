@@ -15,9 +15,11 @@ body {
     user-select: none;
 }
 
-canvas,
 #render3D {
     border-radius: 0 0.6rem 0.6rem 0;
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://media.istockphoto.com/id/1440521177/photo/2022-recap-economy-business-financial-concept-business-plan-in-2023-recap-words-and-2022-on.jpg?s=170667a&w=0&k=20&c=sgV0ipydesXgIiiHxumnaK4jLRNwCFv-cqGlnyHM1Ss=");
 }
 
 .titleView {
@@ -27,6 +29,12 @@ canvas,
 
 .title {
     text-align: center;
+}
+
+.gradient-form {
+    width: 100%;
+    height: 100vh!important;
+    
 }
 
 .gradient-custom-2 {
