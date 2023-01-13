@@ -70,6 +70,7 @@ const source = [
         type: 'image',
         title: 'Dreams of Love',
         soundURL: './assets/sounds/DoanKetMoi.mp3',
+        soundName: 'Đoạn Kết Mới - Hoàng Dũng',
         soundStartAt: 21,
         // transform: 'X',
         detail:
@@ -84,6 +85,7 @@ const source = [
         title: 'Đại hội Thể thao Đông Nam Á 2022 (2022 Southeast Asian Games)',
         // transform: 'X',
         soundURL: './assets/sounds/Let_sShine.mp3',
+        soundName: "Hãy Tỏa Sáng (Let's Shine) - Huy Tuấn",
         soundStartAt: 46,
         detail:
             `SEA Games 31 là một sự kiện thể thao đa môn diễn ra ở Hà Nội,
@@ -100,6 +102,7 @@ const source = [
     {
         type: 'image',
         soundURL: './assets/sounds/Let_sShine.mp3',
+        soundName: "Hãy Tỏa Sáng (Let's Shine) - Huy Tuấn",
         soundStartAt: 54,
         // transform: 'X',
         detail:
@@ -112,6 +115,7 @@ const source = [
     {
         type: 'image',
         soundURL: './assets/sounds/Let_sShine.mp3',
+        soundName: "Hãy Tỏa Sáng (Let's Shine) - Huy Tuấn",
         soundStartAt: 62,
         // transform: 'X',
         detail:
@@ -146,6 +150,7 @@ const source = [
     {
         type: 'image',
         soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
         soundStartAt: 24,
         title: 'TOEIC',
         // transform: 'X',
@@ -162,6 +167,7 @@ const source = [
     {
         type: 'video',
         soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
         soundStartAt: 30,
         title: 'Nghiên cứu khoa học',
 
@@ -177,6 +183,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
         soundStartAt: 36,
         title: 'Nghiên cứu khoa học',
         // transform: 'X',
@@ -189,6 +196,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
         soundStartAt: 42,
         // transform: 'X',
         velocity: 0.001,
@@ -197,6 +205,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/Dreamers.mp3',
+        soundName: "Dreamers - Jung Kook ft Fahad Al-Kubaisi ",
         soundStartAt: 18,
         title: 'SAMSUNG SVMC – CHƯƠNG TRÌNH THỰC TẬP SINH KỲ HÈ 2022',
         // transform: 'X',
@@ -211,6 +220,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/Dreamers.mp3',
+        soundName: "Dreamers - Jung Kook ft Fahad Al-Kubaisi ",
         soundStartAt: 24,
         detail:
             `Tôi đã có cơ hội thực tập với các bạn UET, PTIT, ... 
@@ -224,6 +234,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/Dreamers.mp3',
+        soundName: "Dreamers - Jung Kook ft Fahad Al-Kubaisi ",
         soundStartAt: 30,
         detail:
             ` Bài Test khó vô cùng`,
@@ -242,6 +253,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/Sad.mp3',
+        soundName: "Sad ",
         title: 'Sự mất mát đầu tiên',
         detail:
             `Tuy vậy, trong kỳ thực tập tôi phải chứng kiến cảnh đám tang
@@ -292,6 +304,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/Sad.mp3',
+        soundName: "Sad",
         title: 'Những thất bại...',
         // transform: 'X',
         detail:
@@ -301,11 +314,12 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
              Và một số điều thật sự nuối tiếc...
             `,
         velocity: 0.001,
-        src: './assets/Carreer/stp.jpg'
+        src: './assets/Career/stp.jpg'
     },
     {
         type: 'image',
         soundURL: './assets/sounds/Fashion.mp3',
+        soundName: "Fashion",
         title: ' Aquafina Vietnam International Fashion Week Fall/Winter (AVIFW 2022) ',
         // transform: 'X',
         detail:
@@ -317,6 +331,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/Fashion.mp3',
+        soundName: "Fashion",
         detail:
             `Tôi may mắn có cơ hội tham gia chương trình với 
         tư cách Cộng tác viên Sản Xuất. Đóng góp dàn dựng sân khấu, kịch bản
@@ -327,6 +342,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'video',
         soundURL: './assets/sounds/Fashion.mp3',
+        soundName: "Fashion",
         detail: `Cùng hợp tác với Multi Media JSC, Bùi Minh Tiến. 
         Được gặp gỡ những người mẫu, diễn viên, người nổi tiếng như Mạc
         Trung Kiên, H'Hen Niê,Võ Hoàng Yến, 
@@ -367,6 +383,7 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: 'Yet To Come - Jung Kook ft Fahad Al-Kubaisi ',
         title: 'Hum...',
         detail: `Năm nay, cũng có kỳ thực tập tại trường. Dù rất muốn
         làm việc tại các công ty phúc lợi tốt nhưng lại xa xôi địa lý và 
@@ -422,12 +439,36 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     },
 ]
 
+function TabBar() {
+    return (
+        <div className="tab-bar" >
+            <div className="tab-bar-inner">
+
+                <a href="./">2022 Review - Mik Tae</a>
+            </div>
+            <div className="tab-bar-inner">
+                <i className="fa fa-home"></i>
+                <a href="./"> Home </a>
+            </div>
+            <div className="tab-bar-inner">
+                <i class="fa-solid fa-gifts"></i>
+                <a href="#thanks"> Thanks </a>
+            </div>
+            <div className="tab-bar-inner">
+                <i class="fa-solid fa-message"></i>
+                <a href="./sendMessage.html"> Messages </a>
+            </div>
+        </div>
+    )
+}
+
 let k = 10
 
 function ListView(props) {
     let list = React.useRef()
     let media = React.useRef()
     let audioRef = React.useRef()
+    const [expand, setExpand] = React.useState(false)
 
     let scale = 1, maxScale = 2.5, minScale = 0.5
 
@@ -469,11 +510,11 @@ function ListView(props) {
         }
     }
 
+
+
     setInterval(() => {
         k -= props.velocity
-        if (list && list.current && props.transform == 'X')
-            list.current.style.transform = "translateX(" + -k + "px"
-        else if (list && list.current)
+        if (list && list.current)
             list.current.style.transform = "translateY(" + k + "px"
     }, 10)
 
@@ -489,7 +530,7 @@ function ListView(props) {
                 props.stopSound && audioRef.current
                 && audioRef.current.pause()
             }
-            <div className="list-view-header">
+            {/* <div className="list-view-header">
                 <div className="list-view-title">
                     <p>{props.title}</p>
                 </div>
@@ -499,30 +540,63 @@ function ListView(props) {
                         fontSize: '1.3rem',
                     }} href={props.link}>{props.linkText}</a>
                 </div>
+            </div> */}
+            <div className="list-view-main">
+                {
+                    props.type === 'image'
+                        ? <img ref={media}
+                            controlsList="nodownload"
+                            src={props.src}
+                            alt={props.detail}
+                            onContextMenu={(e) => {
+                                e.preventDefault();
+                                return false
+                            }}
+                            onWheel={(e) => ZoomOn(e)}
+                            onClick={(e) => isTouch(e)} /> :
+                        <video controlsList="nodownload" onWheel={(e) => ZoomOn(e)}
+                            controls src={props.src}
+                            onClick={(e) => isTouch(e)} alt={props.type} />
+                }
+                <div className="list-view-title">
+                    <p>{props.title}</p>
+                </div>
+                <div className="list-view-detail">
+                    {props.detail && props.detail.length <= 99 ?
+                        <p>{props.detail}</p> :
+                        <p>
+                            {
+                                !expand ?
+                                    <div>
+                                        <p>{props.detail && `${props.detail.substring(0, 99)}...`}
+                                            <span onClick={() => setExpand(true)}>
+                                                more
+                                            </span></p>
+                                    </div>
+                                    : <p style={{
+                                        overflowY: 'scroll',
+                                        height: '3rem'
+                                    }}
+                                        onClick={() => setExpand(false)}>{props.detail}</p>
+                            }
+                        </p>}
+                    <a style={{
+                        fontSize: '1.3rem',
+                    }} href={props.link}>{props.linkText}</a>
+                    {props.soundName && <p>
+                        <i className="fas fa-music"></i>
+                        &nbsp;
+                        {props.soundName}
+                    </p>}
+                </div>
             </div>
-            {
-                props.type === 'image'
-                    ? <img ref={media}
-                        controlsList="nodownload"
-                        src={props.src}
-                        alt={props.detail}
-                        onContextMenu={(e) => {
-                            e.preventDefault();
-                            return false
-                        }}
-                        onWheel={(e) => ZoomOn(e)}
-                        onClick={(e) => isTouch(e)} /> :
-                    <video controlsList="nodownload" onWheel={(e) => ZoomOn(e)}
-                        controls src={props.src}
-                        onClick={(e) => isTouch(e)} alt={props.type} />
-            }
             <audio controlsList="nodownload"
                 ref={audioRef} id={props.id}>
                 <source src={props.soundURL}
                     type="audio/mpeg" />
                 Your browser does not support the audio element.
             </audio>
-        </div>
+        </div >
     )
 }
 
@@ -573,6 +647,7 @@ const ThankList = [
     { Name: 'Suk J. Young' },
     { Name: 'Others' },
 ]
+
 function ThankFor(props) {
     let thanks = React.useRef()
 
@@ -580,10 +655,10 @@ function ThankFor(props) {
         k -= 0.012
         if (thanks.current)
             thanks.current.style.transform = "translateY(" + k + "px"
-    }, 2)
+    }, 10)
 
     return (
-        <div ref={thanks} className="thanks-view">
+        <div ref={thanks} id="thanks" className="thanks-view">
             <p style={{
                 fontSize: '2em'
             }}>Thanks for </p>
@@ -597,16 +672,17 @@ function ThankFor(props) {
     )
 }
 
-
 function App() {
     return (
         <div className="container-fluid">
             <NavBar></NavBar>
+            <TabBar></TabBar>
             {
                 source.map((s, i) => (<ListView key={s.src}
                     id={i} title={s.title}
                     soundURL={s.soundURL}
                     soundStartAt={s.soundStartAt}
+                    soundName={s.soundName}
                     lastView={s.lastView}
                     link={s.link} linkText={s.linkText}
                     type={s.type} velocity={0.1}
@@ -631,7 +707,7 @@ function Modal() {
                     Vì lý do bảo mật và riêng tư,
                     yêu cầu bạn không rời khỏi trang web trong quá trình xem
                 </li>
-                <li>Vì lý đảm bảo bảo mật, quyền riêng tư,
+                <li>Do lý đảm bảo bảo mật, quyền riêng tư,
                     yêu cầu bạn không sử dụng các thiết bị ghi hình,
                     quay video(điện thoại, camera, ...)</li>
                 <li>Không sao chép dưới mọi hình thức</li>
@@ -788,19 +864,19 @@ else {
         root.render(<React.StrictMode>
             <App />
         </React.StrictMode>)
-    }, 10000);
+    }, 9000);
 }
 
-document.body.addEventListener("mouseleave", function (event) {
-    if (event.clientY <= 0 || event.clientX <= 0
-        || (event.clientX >= window.innerWidth
-            || event.clientY >= window.innerHeight)) {
-        root.render(
-            <React.StrictMode>
-                <Modal />
-            </React.StrictMode>);
-    }
-});
+// document.body.addEventListener("mouseleave", function (event) {
+//     if (event.clientY <= 0 || event.clientX <= 0
+//         || (event.clientX >= window.innerWidth
+//             || event.clientY >= window.innerHeight)) {
+//         root.render(
+//             <React.StrictMode>
+//                 <Modal />
+//             </React.StrictMode>);
+//     }
+// });
 
 /** TO DISABLE SCREEN CAPTURE **/
 document.addEventListener('keyup', (e) => {
