@@ -162,7 +162,7 @@ const source = [
         velocity: 0.001,
         link: 'https://www.facebook.com/ImaxToeic',
         linkText: 'Imax Toeic',
-        src: 'https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/280133626_369669435188978_4183045557171228603_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=3f1nn37s6bUAX_IiydI&_nc_ht=scontent.fhan14-1.fna&oh=03_AdQnXuQ0x0sg9eoynecfh5A1apGPzbViQycVl1lWoEa_jA&oe=63BFD6F9'
+        src: 'https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/280133626_369669435188978_4183045557171228603_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=UoZ02-rLRkwAX_8zzIP&_nc_ht=scontent.fhan14-1.fna&oh=03_AdTXUsox6trJbFY2YyebeUmIHhbpj0ohwUAfQeSom3NYAg&oe=63E87D39'
     },
     {
         type: 'video',
@@ -867,16 +867,16 @@ else {
     }, 9000);
 }
 
-// document.body.addEventListener("mouseleave", function (event) {
-//     if (event.clientY <= 0 || event.clientX <= 0
-//         || (event.clientX >= window.innerWidth
-//             || event.clientY >= window.innerHeight)) {
-//         root.render(
-//             <React.StrictMode>
-//                 <Modal />
-//             </React.StrictMode>);
-//     }
-// });
+document.body.addEventListener("mouseleave", function (event) {
+    if (event.clientY <= 0 || event.clientX <= 0
+        || (event.clientX >= window.innerWidth
+            || event.clientY >= window.innerHeight)) {
+        root.render(
+            <React.StrictMode>
+                <Modal />
+            </React.StrictMode>);
+    }
+});
 
 /** TO DISABLE SCREEN CAPTURE **/
 document.addEventListener('keyup', (e) => {
