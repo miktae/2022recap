@@ -77,6 +77,10 @@ video::-webkit-media-controls-panel {
     padding: 2%;
 }
 
+.navbar{
+    width: 102%
+}
+
 .navbar, .tab-bar {
     z-index: 1;
 }
@@ -282,4 +286,32 @@ body.dark {
 
 .modal-container h1 {
     padding: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+    .list-view{
+        align-items: center;
+    }
+    .list-view-main{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .modal-container{
+        margin: 4%;
+        text-align: justify;
+    }
+    .list-view{
+        align-items: center;
+    }
+    .list-view-main{
+        width: 100%;
+    }
+    .tab-bar{
+        display: none;
+    }
+    .logout-btn p{
+        font-size: 1em!important;
+    }
 }

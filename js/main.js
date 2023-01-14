@@ -12,7 +12,7 @@ let logoutText = 'Log Out'
 function LogOutBtn() {
 
     React.useState(() => {
-        console.log(logoutText);
+     // console.log(logoutText);
     }, [logoutText])
 
     return (
@@ -615,7 +615,6 @@ const ThankList = [
     { Name: 'ETS', logoSrc: './assets/logos/ets.png' },
     { Name: 'Rocket Studio', logoSrc: './assets/logos/rocket.png' },
     { Name: 'Korean Cultural Center', logoSrc: './assets/logos/kcenter.jpg' },
-    { Name: 'MultiMedia JSC', logoSrc: './assets/logos/multi.jpg' },
     { Name: 'VinUni', logoSrc: './assets/logos/vinu.png' },
     { Name: 'HAUI', logoSrc: './assets/logos/haui.png' },
     { Name: 'NEU', logoSrc: './assets/logos/neu.png' },
@@ -751,6 +750,18 @@ function Modal() {
     )
 }
 
+if(window.innerWidth < 600){
+    confirm("Sử dụng máy tính, máy tính bảng để xem nội dung này!\nUse a computer or tablet to view this content!")
+    root.render(
+        <React.StrictMode>
+           <div style={{padding: '12px', display: 'flex', flexWrap: 'wrap'}}>
+            Nội dung không hiển thị trên thiết bị này
+            <br/>The content is not displayed on this device
+            </div> 
+        </React.StrictMode>
+    );
+}
+
 // Check if webcam access is supported.
 function getUserMediaSupported() {
     return !!(navigator.mediaDevices &&
@@ -818,6 +829,12 @@ function predictWebcam() {
                             <Modal />
                         </React.StrictMode>);
                 }
+                else if (predictions[n].class == " ") {
+                    root.render(
+                        <React.StrictMode>
+                            <Modal />
+                        </React.StrictMode>);
+                }
 
                 const p = document.createElement('p');
                 p.innerText = predictions[n].class + ' - with '
@@ -846,7 +863,7 @@ function predictWebcam() {
 }
 
 onload = () => {
-    enableCam();
+    if(window.innerWidth >= 600)  enableCam();
 }
 
 if (!sessionStorage.getItem("uid")) {
@@ -854,7 +871,7 @@ if (!sessionStorage.getItem("uid")) {
     window.location.href = './login.html'
     root.render('Loading...')
 }
-else {
+else if(window.innerWidth >= 600){
     root.render(
         <React.StrictMode>
             <Modal />
