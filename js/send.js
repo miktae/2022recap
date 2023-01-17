@@ -1,32 +1,33 @@
 import { addDoc, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { db } from './firebase.js'
+import { createPopup } from 'https://unpkg.com/@picmo/popup-picker@latest/dist/index.js?module';
 
 let sendBtn = document.getElementById('sendBtn');
+let message = document.getElementById('textArea')
 
 sendBtn.onclick = () => {
-    let message = document.getElementById('textArea')
-    if(message.value.length > 0) {
-         try {
-        const docRef = addDoc(collection(db, "messages"), {
-            userName: sessionStorage.getItem('userName'),
-            createdAt: new Date(),
-            message: message.value
-        })
-        .then(() => {
-           let n = Math.floor(Math.random() * 8)
-           document.getElementById("grants").innerHTML = cogs[n]
-        })
-    } catch (e) {
-        console.error("Error adding document: ", e);
-    }
+
+    if (message.value.length > 0) {
+        try {
+            const docRef = addDoc(collection(db, "messages"), {
+                userName: sessionStorage.getItem('userName'),
+                createdAt: new Date(),
+                message: message.value
+            })
+                .then(() => {
+                    let n = Math.floor(Math.random() * 8)
+                    document.getElementById("grants").innerHTML = cogs[n]
+                })
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
     }
     else {
         alert('Please enter a message')
     }
 }
 
-function CountDownTimer(dt, id)
-{
+function CountDownTimer(dt, id) {
     var end = new Date(dt);
 
     var _second = 1000;
@@ -59,17 +60,106 @@ function CountDownTimer(dt, id)
     timer = setInterval(showRemaining, 1000);
 }
 
+const emoji = document.querySelector("#selection-emoji");
+const name = document.querySelector("#selection-name");
+
+const picker = createPopup(
+    {},
+    {
+        referenceElement: document.querySelector("#selection-outer"),
+        triggerElement: emoji,
+        position: "bottom-start",
+        showCloseButton: false
+    }
+);
+
+emoji.addEventListener("click", () => {
+    picker.toggle();
+});
+
+picker.addEventListener("emoji:select", (selection) => {
+    message.innerHTML += selection.emoji;
+    name.textContent = selection.label;
+
+    emoji.classList.remove("empty");
+    name.classList.remove("empty");
+});
+
 CountDownTimer('01/22/2023 00:0 AM', 'counter-view')
 
 let cogs = [
-   " Chúc mừng năm mới 2023. Chúc sang năm mới đau đầu vì giàu, mệt mỏi vì học giỏi, buồn phiền vì nhiều tiền, ngang trái vì xinh gái, mệt mỏi vì đẹp giai và mất ngủ vì không có đối thủ.",
-   "Chúc bạn năm mới hạnh phúc, tấn tài tấn lộc, tấn an khang.",
-   "Chúc bạn một năm giàu sang như vàng, nhẹ nhàng như nhôm, polime ngập túi, sự nghiệp thăng hoa như iot gặp nhiệt độ và trẻ trung lung linh tựa kim cương.",
-   " Chúc mừng năm mới, tiền xu đầy túi, tiền giấy đầy bao, đi ăn được khao, về nhà được rước, tiền vô ngõ trước, hột xoàn vô ngõ sau, nói chung tiền đầy túi, tình đầy tym."
-, "Chúc bạn năm mới sự nghiệp thăng tiến, tiền vào như nước, công thành danh toại."
-, "Chúc bạn năm mới vạn sự như ý, tiền bạc như mơ, làm việc như thơ, đời vui như nhạc, coi tiền như rác, coi bạc như rơm, chung thuỷ với cơm, sắc son như phở."
-, "Mừng xuân Quý Mão chúc bạn luôn vui vẻ như chim Sẻ, luôn khỏe mạnh như Đại Bàng, lúc nào cũng giàu sang như chim Phụng, và sống lâu như Đà Điểu"
-, "Năm hết Tết đến, chúc cho bạn một năm mới thật thành công, khỏe mạnh, ước gì được nấy, đánh đâu thắng đó"
+    " Chúc mừng năm mới 2023. Chúc sang năm mới đau đầu vì giàu, mệt mỏi vì học giỏi, buồn phiền vì nhiều tiền, ngang trái vì xinh gái, mệt mỏi vì đẹp giai và mất ngủ vì không có đối thủ.",
+    "Chúc bạn năm mới hạnh phúc, tấn tài tấn lộc, tấn an khang.",
+    "Chúc bạn một năm giàu sang như vàng, nhẹ nhàng như nhôm, polime ngập túi, sự nghiệp thăng hoa như iot gặp nhiệt độ và trẻ trung lung linh tựa kim cương.",
+    " Chúc mừng năm mới, tiền xu đầy túi, tiền giấy đầy bao, đi ăn được khao, về nhà được rước, tiền vô ngõ trước, hột xoàn vô ngõ sau, nói chung tiền đầy túi, tình đầy tym."
+    , "Chúc bạn năm mới sự nghiệp thăng tiến, tiền vào như nước, công thành danh toại."
+    , "Chúc bạn năm mới vạn sự như ý, tiền bạc như mơ, làm việc như thơ, đời vui như nhạc, coi tiền như rác, coi bạc như rơm, chung thuỷ với cơm, sắc son như phở."
+    , "Mừng xuân Quý Mão chúc bạn luôn vui vẻ như chim Sẻ, luôn khỏe mạnh như Đại Bàng, lúc nào cũng giàu sang như chim Phụng, và sống lâu như Đà Điểu"
+    , "Năm hết Tết đến, chúc cho bạn một năm mới thật thành công, khỏe mạnh, ước gì được nấy, đánh đâu thắng đó"
 
 ]
+
+// set up basic variables for app
+
+const record = document.querySelector('#record');
+
+let nOfClick = 0;
+
+//main block for doing the audio recording
+
+if (navigator.mediaDevices.getUserMedia) {
+    console.log('getUserMedia supported.');
+
+    const constraints = { audio: true };
+    let chunks = [];
+
+    let onSuccess = function (stream) {
+        const mediaRecorder = new MediaRecorder(stream);
+
+        record.onclick = function () {
+            nOfClick++;
+            console.log(nOfClick);
+
+            if (nOfClick % 2) {
+                mediaRecorder.start();
+                console.log(mediaRecorder.state);
+                console.log("recorder started");
+                record.style.color = "red";
+            }
+            else if (!(nOfClick % 2)) {
+                mediaRecorder.stop();
+                console.log(mediaRecorder.state);
+                console.log("recorder stopped");
+                record.style.color = "";
+                
+            }
+        }
+
+        mediaRecorder.onstop = function (e) {
+            console.log("data available after MediaRecorder.stop() called.");
+
+            const blob = new Blob(chunks, { 'type': 'audio/ogg; codecs=opus' });
+            chunks = [];
+            const audioURL = window.URL.createObjectURL(blob);
+            console.log("recorder stopped");
+            document.getElementById("textAreaContent")
+            .classList.remove("hidden");
+            document.getElementById("textAreaContent")
+                .src = audioURL;
+        }
+
+        mediaRecorder.ondataavailable = function (e) {
+            chunks.push(e.data);
+        }
+    }
+
+    let onError = function (err) {
+        console.log('The following error occured: ' + err);
+    }
+
+    navigator.mediaDevices.getUserMedia(constraints).then(onSuccess, onError);
+
+} else {
+    console.log('getUserMedia not supported on your browser!');
+}
 

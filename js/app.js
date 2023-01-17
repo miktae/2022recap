@@ -1,5 +1,5 @@
-// Login
-// Add a second document with a generated ID.
+"use strict";
+
 import { addDoc, onSnapshot, query, where, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { db } from './firebase.js'
 

@@ -1,5 +1,5 @@
-// Login
-// Add a second document with a generated ID.
+"use strict"
+
 import { ref, uploadString } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js";
 import { storage } from './firebase.js'
 
@@ -67,6 +67,6 @@ takePhotoBtn.onclick = () => {
             console.log('Uploaded a data_url string!');
         })
         .then(() => {
-             window.location.href = './'
+             window.location.href = '../'
         })
 }

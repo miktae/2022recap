@@ -1,6 +1,10 @@
+"use strict";
+
 const root = ReactDOM.createRoot(document.querySelector('#main'));
 const video = document.getElementById('webcam');
 const liveView = document.getElementById('liveView');
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('lang');
 
 const LogOut = () => {
     sessionStorage.removeItem('uid')
@@ -12,18 +16,19 @@ let logoutText = 'Log Out'
 function LogOutBtn() {
 
     React.useState(() => {
-     // console.log(logoutText);
+        // console.log(logoutText);
     }, [logoutText])
 
     return (
         <div className="logout-btn">
-
-            <p style={{
-                marginTop: '0.3%',
-                padding: '0 3%',
-                fontSize: '1.5rem',
-                fontWeight: '600'
-            }}>User: {sessionStorage.getItem('userName')}</p>
+            <div className="d-flex flex-column">
+                <p style={{
+                    marginTop: '0.3%',
+                    padding: '0 3%',
+                    fontSize: '1.5rem',
+                    fontWeight: '600'
+                }}>User: {sessionStorage.getItem('userName')}</p>
+            </div>
             <button className="btn btn-secondary" onClick={LogOut}>
                 {logoutText}
             </button>
@@ -74,8 +79,8 @@ const source = [
         soundStartAt: 21,
         // transform: 'X',
         detail:
-            `Trong năm nay, tôi đã gặp được một người đáng yêu. 
-             Đúng là đi chùa Hà rất hợp lý cho người ế lâu như tôi...
+            `Trong năm nay, với sự khởi đầu là tình yêu từ một dancer 
+             . Dù đã là quá khứ, nhưng đây cũng là một góc khung trời. 
             `,
         velocity: 0.01,
         src: './assets/LuvDream/0.jpg'
@@ -119,8 +124,10 @@ const source = [
         soundStartAt: 62,
         // transform: 'X',
         detail:
-            `Tôi được gặp các VĐV Đông Nam Á, Việt Nam. Cùng với đó,
-            được chia sẻ nền văn hóa Việt. 
+            `Tôi được gặp các VĐV Đông Nam Á, Việt Nam như đội tuyển 
+            Việt Nam, Nguyễn Huy Hoàng _ anh này điển trai cực,
+            Nguyễn Thị Oanh, ... . Cùng với đó,
+            được chia sẻ nền văn hóa Việt với các bạn nước ngoài. 
             `,
         velocity: 0.001,
         src: './assets/SEAGAMES/2.jpg'
@@ -130,8 +137,8 @@ const source = [
 
         // transform: 'X',
         detail:
-            `Và rất vinh dự được gặp các Bác lãnh đạo Đảng, Thànn phố.
-            :))) Báo chí chụp chứ tôi không giữ ảnh. 
+            `Và rất vinh dự được gặp các Bác lãnh đạo Đảng, Thành phố
+             như Thủ tướng Phạm Minh Chính, các bộ trưởng các quốc gia.
             `,
         velocity: 0.001,
         src: './assets/SEAGAMES/3.mp4'
@@ -142,7 +149,7 @@ const source = [
         soundStartAt: 70,
         // transform: 'X',
         detail:
-            `Giấy chứng nhận 🤗
+            `Giấy chứng nhận cho những đóng góp cho Đại hội🤗
             `,
         velocity: 0.001,
         src: './assets/SEAGAMES/Cer.png'
@@ -155,14 +162,18 @@ const source = [
         title: 'TOEIC',
         // transform: 'X',
         detail:
-            `TOEIC, viết tắt của Test of English for International Communication – Bài kiểm tra tiếng Anh giao tiếp quốc tế, là một chứng chỉ tiếng Anh quốc tế về giao tiếp dành cho người đi làm không phải là người sử dụng tiếng Anh làm tiếng mẹ đẻ, đặc biệt là những đối tượng muốn sử dụng tiếng Anh trong môi trường giao tiếp và làm việc quốc tế. Kết quả của bài thi TOEIC phản ánh mức độ thành thạo khi giao tiếp bằng
-             tiếng Anh trong các hoạt động như kinh doanh, thương mại, du lịch.
-             \n May mắn được chị Thanh Lê, bạn Toàn Phạm hướng dẫn, hỗ trợ tôi trong quá trình ôn thi chứng chỉ quốc tế này.
+            `TOEIC, viết tắt của Test of English for 
+            International Communication – Bài kiểm tra tiếng Anh 
+            giao tiếp quốc tế, là một chứng chỉ tiếng Anh quốc tế.
+             \n May mắn được chị Thanh Lê, bạn Toàn Phạm hướng dẫn,
+              hỗ trợ tôi trong quá trình ôn thi chứng chỉ quốc tế này. 
+              Nhờ sự hướng dẫn cũng như kỹ năng, năng lực bản thân, tôi cũng có
+              số điểm nho nhỏ.
             `,
         velocity: 0.001,
         link: 'https://www.facebook.com/ImaxToeic',
         linkText: 'Imax Toeic',
-        src: 'https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/280133626_369669435188978_4183045557171228603_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=UoZ02-rLRkwAX_8zzIP&_nc_ht=scontent.fhan14-1.fna&oh=03_AdTXUsox6trJbFY2YyebeUmIHhbpj0ohwUAfQeSom3NYAg&oe=63E87D39'
+        src: './assets/TOEIC/toeic.jpg'
     },
     {
         type: 'video',
@@ -173,9 +184,9 @@ const source = [
 
         // transform: 'X',
         detail:
-            `Với chủ đề sử dụng Xử lý ảnh, Trí tuệ nhân tạo 
+            `Với chủ đề áp dụng kỹ thuật Xử lý ảnh, Trí tuệ nhân tạo 
 trong phân loại hoa quả, nhóm tôi đã đoạt giải Nhì cấp trường.
-Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
+Cảm ơn thầy Nam và nhóm nghiên cứu: các anh Thiên, Đào Anh, và Thủy ạ!
             `,
         velocity: 0.001,
         src: './assets/NCKH/1.mp4'
@@ -188,7 +199,9 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         title: 'Nghiên cứu khoa học',
         // transform: 'X',
         detail:
-            `Code khó vô cùng khi kết hợp PLC, Python và lập trình Web
+            `Code có độ phức tạp cao khi tích hợp phần cứng và phần mềm.
+            Điều khiển PLC, khí nén, lập trình Python và lập trình Web được 
+            áp dụng vào đề tài.
             `,
         velocity: 0.001,
         src: './assets/NCKH/1.jpg'
@@ -198,6 +211,9 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         soundURL: './assets/sounds/YetToCome.mp3',
         soundName: "Yet To Come - BTS",
         soundStartAt: 42,
+        detail:
+            `Tuy không đạt giải Nhất nhưng cũng được giải Nhì.
+            `,
         // transform: 'X',
         velocity: 0.001,
         src: './assets/NCKH/Cer.jpg'
@@ -210,10 +226,10 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         title: 'SAMSUNG SVMC – CHƯƠNG TRÌNH THỰC TẬP SINH KỲ HÈ 2022',
         // transform: 'X',
         detail:
-            `SVMC Internship Program là chương trình được tổ chức hàng năm của SVMC dành cho những sinh viên của khoa CNTT, ĐTVT, Toán – Tin của những trường có hợp tác với Samsung SVMC.
+            `SVMC Internship Program là chương trình được tổ chức hàng năm của SVMC Samsung.
             Đây là chương trình rất thiết thực, ý nghĩa dành cho các bạn sinh viên năm cuối hoặc gần cuối. Tham gia chương trình, sinh viên được hệ thống lại, đào tạo bài bản về thuật toán cơ bản;
              được đào tạo và tham gia làm các mini-project với các sản phẩm đầu ra cụ thể trên nền tảng Android hoặc C/C++ Application.
-            Ngoài ra, sinh viên cũng được tham gia trải nghiệm văn hóa làm việc của một trung tâm công nghệ hàng đầu của Samsung, được hướng dẫn về các kỹ năng cần thiết trên Microsoft office. `,
+            Ngoài ra, sinh viên cũng được tham gia trải nghiệm văn hóa làm việc của một trung tâm công nghệ hàng đầu của Samsung, được hướng dẫn về các kỹ năng cần thiết trên Microsoft Office. `,
         velocity: 0.001,
         src: './assets/SamSungIntern/Paper.jpg'
     },
@@ -223,10 +239,11 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         soundName: "Dreamers - Jung Kook ft Fahad Al-Kubaisi ",
         soundStartAt: 24,
         detail:
-            `Tôi đã có cơ hội thực tập với các bạn UET, PTIT, ... 
+            `Tôi đã có cơ hội thực tập tại SVMC( nay là SRV ) với các bạn UET, PTIT, ... 
             với profile cực xịn, các anh chị nhiệt tình hỗ trợ. Đặc biệt cảm ơn
-            các bạn Quân UET, Quang PTIT và 2 anh Tuấn HR và Training
-            Vì lý do bảo mật,
+            các bạn Lê Quân UET, Quang PTIT
+             và 2 anh Tuấn HR và Training
+            Vì lý do bảo mật và ít chụp ảnh,
             nên hơi ít hình ảnh :))) `,
         velocity: 0.01,
         src: './assets/SamSungIntern/Costume.jpg'
@@ -237,7 +254,8 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         soundName: "Dreamers - Jung Kook ft Fahad Al-Kubaisi ",
         soundStartAt: 30,
         detail:
-            ` Bài Test khó vô cùng`,
+            ` Bài Test kiểm tra khó vô cùng. :))) Có 3 bạn đỗ, cả lớp thi lại.
+            Thuật toán không hề dễ như đạt 10 phẩy lập trình C, C++ ở Trường`,
         velocity: 0.01,
         src: './assets/SamSungIntern/TestR.jpg'
     },
@@ -245,8 +263,9 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         type: 'image',
         detail:
             `Dù đã kết thúc, nhưng đây là trải nghiệm đáng nhớ của tôi 
-            với tập đoàn hàng đầu thế giới.
-            Cảm ơn anh, chị SVMC ^^ `,
+            tại tập đoàn hàng đầu thế giới. Đứng ở tầng 20 số 1 Phạm Văn 
+            Bạch là một phần ước mơ của tôi.
+            Cảm ơn tập đoàn Chaebol SamSung, trung tâm SVMC(nay là SRV) ^^ `,
         velocity: 0.01,
         src: './assets/SamSungIntern/Cer.jpg'
     },
@@ -256,8 +275,8 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         soundName: "Sad ",
         title: 'Sự mất mát đầu tiên',
         detail:
-            `Tuy vậy, trong kỳ thực tập tôi phải chứng kiến cảnh đám tang
-            của người Bác yêu thương. 😔`,
+            `Và trong kỳ thực tập, tôi phải chứng kiến cảnh ra đi
+            của người Bác yêu thương. Mọi thứ thật là vô thường . 😔`,
         velocity: 0.01,
         src: './assets/Funeral/1.jpg'
     },
@@ -268,7 +287,6 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         // transform: 'X',
         detail:
             `MOS (Microsoft Office Specialist) là bài thi về kỹ năng Tin học Văn phòng được triển khai bởi Tập đoàn khảo thí Tin học hàng đầu thế giới – Certiport (Hoa Kỳ) và đang được áp dụng trên 150 quốc gia và vùng lãnh thổ trên thế giới. 
-            Bài thi MOS được thực hiện trực tuyến trên 27 ngôn ngữ và đã được Việt hóa, với trung bình 280.000 bài thi mỗi tháng được tổ chức thông qua hơn 12.000 trung tâm được ủy quyền chính thức của Certiport.
             Chứng chỉ MOS do chính Tổng Giám đốc Microsoft ký tên và có giá trị vô thời hạn trên toàn cầu. Tại Việt Nam, Chứng chỉ MOS đã được Bộ Thông tin và Truyền thông công nhận tương đương chuẩn kỹ năng CNTT nâng cao quy định trong thông tư 03/BTTTT-CNTT của Bộ Thông tin và Truyền thông.. `,
         velocity: 0.001,
         src: './assets/MOS/W.jpg'
@@ -280,7 +298,8 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         detail:
             `Cảm ơn Trung tâm 
             10Education đã hỗ trợ. Đây là chứng chỉ 
-            quốc tế chứng minh năng lực tin học văn phòng cho cá nhân tôi` ,
+            quốc tế chứng minh năng lực tin học văn phòng cho 
+            cá nhân tôi` ,
         link: 'http://10education.vn/',
         linkText: 'Trung tâm 10Education',
         velocity: 0.01,
@@ -293,7 +312,8 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         // transform: 'X',
         detail:
             `Trong năm nay, tôi laị thêm lần nữa chứng kiến
-            cảnh mất người thân. Đó là người bà đáng kính của tôi.
+            cảnh xa biệt âm dương người thân. Đó là người bà nội 
+            đáng kính của tôi. 
              Haizz.... tuy vậy, đây cũng có lẽ giai đoạn buồn nhất,
              công ty M, với khách hàng hãm còn ép gọi điện đêm 
              hôm để chỉ bài con họ, đúng là đồ mất não.
@@ -308,10 +328,10 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         title: 'Những thất bại...',
         // transform: 'X',
         detail:
-            `Trong năm nay, cũng có những sự thất bại, trượt
+            `Trong năm nay, có những sự thất bại, nuối tiếc như trượt
             học bổng danh giá SamSung(STP 2022), thi trượt Olympic 
-            Lý, trượt PanaSonic...
-             Và một số điều thật sự nuối tiếc...
+            Lý, trượt PanaSonic Fresher 2022, ...
+            Không phải những gì tôi có được là dễ dàng. 
             `,
         velocity: 0.001,
         src: './assets/Career/stp.jpg'
@@ -385,9 +405,9 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         soundURL: './assets/sounds/YetToCome.mp3',
         soundName: 'Yet To Come - Jung Kook ft Fahad Al-Kubaisi ',
         title: 'Hum...',
-        detail: `Năm nay, cũng có kỳ thực tập tại trường. Dù rất muốn
-        làm việc tại các công ty phúc lợi tốt nhưng lại xa xôi địa lý và 
-        gia đình ngăn cấm`,
+        detail: `Năm nay, có kỳ thực tập tại trường Đại học. Dù rất muốn
+        làm việc tại các công ty phúc lợi tốt nhưng vì nhiều lý do 
+        khác nhau thì đã từ chối cơ hội này.`,
         velocity: 0.01,
         src: './assets/Career/foxconn.jpg',
         stopSound: true
@@ -395,9 +415,8 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         lastView: true,
-        detail: `Năm nay, cũng có kỳ thực tập tại trường. Dù rất muốn
-        làm việc tại các công ty phúc lợi tốt nhưng lại xa xôi địa lý và 
-        gia đình ngăn cấm`,
+        detail: `Các vị trí trúng tuyển gồm:
+         RnD tại LG, A.I tại Foxconn, Embeded tại HCL, ... `,
         soundURL: './assets/sounds/YetToCome.mp3',
         velocity: 0.01,
         src: './assets/Career/lginnotek.jpg',
@@ -413,7 +432,6 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     {
         type: 'image',
         title: "FPT Software Development and Trip",
-        lastView: true,
         detail: `Tập đoàn FPT với chương trình HolaPark, tài trợ toàn phần
          FreeCodeCamp trị giá 2x triệu `,
         soundURL: './assets/sounds/YetToCome.mp3',
@@ -422,7 +440,6 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
     },
     {
         type: 'video',
-        lastView: true,
         detail: `PTIT đi đâu cũng gặp :))) `,
         soundURL: './assets/sounds/YetToCome.mp3',
         velocity: 0.01,
@@ -437,6 +454,157 @@ Cảm ơn thầy Nam và các anh Thiên, Anh, Thủy ạ!
         velocity: 0.01,
         src: './assets/HolaPark/f.jpg',
     },
+    {
+        detail: `Cuối cùng, năm 2022 là năm đầy trải nghiệm đáng nhớ, 
+        đạt được các chứng chỉ, kỹ năng ổn. Nhưng đây là năm của sự mất mát
+        khi phải đội khăn tang đến 2 lần. Đây là năm
+         chấm dứt một phần hoặc toàn phần các mối quan hệ không đầu vào đâu và 
+         toxic, đón nhận các vùng trời mới đa diện hơn.
+         Cảm ơn bạn, người đang xem vì đã dành thì giờ của bạn cho tôi.
+         Chúc mừng năm mới tới bạn và người bạn trân trọng. `,
+        soundURL: './assets/sounds/YetToCome.mp3',
+        velocity: 0.01,
+        src: "https://img.freepik.com/free-vector/thank-you-word-doodle-typography-lettering_53876-116957.jpg?w=2000"
+    },
+
+]
+
+const sourceEn = [
+    {
+        type: 'image',
+        title: 'Dreams of Love',
+        soundURL: './assets/sounds/DoanKetMoi.mp3',
+        soundName: 'New Ending - Hoang Dung',
+        soundStartAt: 21,
+        // transform: 'X',
+        detail:
+            `This year, I met a lovely person.
+             It is true that going to Ha Pagoda is very reasonable for someone like me who has been absent for a long time...
+            `,
+        velocity: 0.01,
+        src: './assets/LuvDream/0.jpg'
+    },
+    {
+        type: 'image',
+        title: 'The 2022 Southeast Asian Games (2022 Southeast Asian Games)',
+        // transform: 'X',
+        soundURL: './assets/sounds/Let_sShine.mp3',
+        soundName: "Let's Shine (Let's Shine) - Huy Tuan",
+        soundStartAt: 46,
+        detail:
+            `SEA Games 31 is a multi-sport event taking place in Hanoi,
+             Vietnam in 2022. Originally scheduled to be held on May 21
+              From 11 to 2 December 2021, the congress moved the date to be held
+              changed from May 12 to 23, 2022 due to impact
+              of the COVID-19 pandemic. There are 40 sports, mainly
+              sport competed at the Asian Games and
+               Olympic.
+            `,
+        velocity: 0.001,
+        src: './assets/SEAGAMES/0.jpg'
+    },
+    {
+        type: 'image',
+        soundURL: './assets/sounds/Let_sShine.mp3',
+        soundName: "Let's Shine (Let's Shine) - Huy Tuan",
+        soundStartAt: 54,
+        // transform: 'X',
+        detail:
+            `Very honored and proud when I became a contributing volunteer
+            for this regional event.
+            `,
+        velocity: 0.001,
+        src: './assets/SEAGAMES/1.jpg'
+    },
+    {
+        type: 'image',
+        soundURL: './assets/sounds/Let_sShine.mp3',
+        soundName: "Let's Shine (Let's Shine) - Huy Tuan",
+        soundStartAt: 62,
+        // transform: 'X',
+        detail:
+            `I got to meet Southeast Asian athletes, Vietnam. With that,
+            shared Vietnamese culture.
+            `,
+        velocity: 0.001,
+        src: './assets/SEAGAMES/2.jpg'
+    },
+    {
+        type: 'video',
+
+        // transform: 'X',
+        detail:
+            `And very honored to meet the leaders of the Party and the City.
+            :))) The press took the photo, but I don't keep the photo.
+            `,
+        velocity: 0.001,
+        src: './assets/SEAGAMES/3.mp4'
+    },
+    {
+        type: 'image',
+        soundURL: './assets/sounds/Let_sShine.mp3',
+        soundStartAt: 70,
+        // transform: 'X',
+        detail:
+            `Certificate of
+            `,
+        velocity: 0.001,
+        src: './assets/SEAGAMES/Cer.png'
+    },
+    {
+        type: 'image',
+        soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
+        soundStartAt: 24,
+        title: 'TOEIC',
+        // transform: 'X',
+        detail:
+            `TOEIC, short for Test of English for International Communication – Test of English for International Communication, is an international English language certificate for communication for working people who are not native English speakers. students, especially those who want to use English in an international communication and working environment. The results of the TOEIC test reflect the level of proficiency when communicating in English
+             English in activities such as business, commerce, tourism.
+             \n I was fortunate to be guided and supported by Ms. Thanh Le, Toan Pham's friend, in the process of preparing for this international certification exam.
+            `,
+        velocity: 0.001,
+        link: 'https://www.facebook.com/ImaxToeic',
+        linkText: 'Imax Toeic',
+        src: './assets/TOEIC/toeic.jpg'
+    },
+    {
+        type: 'video',
+        soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
+        soundStartAt: 30,
+        title: 'Scientific Research',
+
+        // transform: 'X',
+        detail:
+            `With the theme using Image Processing, Artificial Intelligence
+in fruit classification, my group won the second prize at the school level.
+Thank you, Mr. Nam and Mr. Thien, Anh and Thuy!
+            `,
+        velocity: 0.001,
+        src: './assets/NCKH/1.mp4'
+    },
+    {
+        type: 'image',
+        soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
+        soundStartAt: 36,
+        title: 'Scientific Research',
+        // transform: 'X',
+        detail:
+            `Code is extremely difficult when combining PLC, Python and Web programming
+            `,
+        velocity: 0.001,
+        src: './assets/NCKH/1.jpg'
+    },
+    {
+        type: 'image',
+        soundURL: './assets/sounds/YetToCome.mp3',
+        soundName: "Yet To Come - BTS",
+        soundStartAt: 42,
+        // transform: 'X',
+        velocity: 0.001,
+    }
 ]
 
 function TabBar() {
@@ -456,7 +624,14 @@ function TabBar() {
             </div>
             <div className="tab-bar-inner">
                 <i class="fa-solid fa-message"></i>
-                <a href="./sendMessage.html"> Messages </a>
+                <a href="./pages/sendMessage.html"> Messages </a>
+            </div>
+            <div className="tab-bar-inner">
+                <i class="fa-solid fa-language"></i>
+                {myParam == "en" ?
+                    <a href="./"> Tiếng Việt </a>
+                    : <a href="?lang=en"> English version </a>
+                }
             </div>
         </div>
     )
@@ -542,6 +717,7 @@ function ListView(props) {
                 </div>
             </div> */}
             <div className="list-view-main">
+
                 {
                     props.type === 'image'
                         ? <img ref={media}
@@ -561,6 +737,9 @@ function ListView(props) {
                 <div className="list-view-title">
                     <p>{props.title}</p>
                 </div>
+                <a style={{
+                    fontSize: '1.3rem',
+                }} href={props.link}>{props.linkText}</a>
                 <div className="list-view-detail">
                     {props.detail && props.detail.length <= 99 ?
                         <p>{props.detail}</p> :
@@ -580,9 +759,7 @@ function ListView(props) {
                                         onClick={() => setExpand(false)}>{props.detail}</p>
                             }
                         </p>}
-                    <a style={{
-                        fontSize: '1.3rem',
-                    }} href={props.link}>{props.linkText}</a>
+
                     {props.soundName && <p>
                         <i className="fas fa-music"></i>
                         &nbsp;
@@ -606,7 +783,7 @@ ListView.defaultProps = {
 }
 
 const ThankList = [
-    { Name: 'My family, gd, and my f' },
+    { Name: 'My family, gd, and my fr' },
     { Name: 'SVMC', logoSrc: 'https://uet.vnu.edu.vn/wp-content/uploads/2022/02/45163700_554629941631875_2774204017406902272_n.jpg' },
     { Name: 'ImaxTOEIC', logoSrc: `./assets/logos/ImaxTOEIC.png` },
     { Name: 'The IELTS Workshop', logoSrc: `https://onthiielts.com.vn/wp-content/uploads/2019/04/tiw-logo.png` },
@@ -671,13 +848,14 @@ function ThankFor(props) {
     )
 }
 
+
 function App() {
     return (
         <div className="container-fluid">
             <NavBar></NavBar>
             <TabBar></TabBar>
             {
-                source.map((s, i) => (<ListView key={s.src}
+                myParam == "en" ? sourceEn.map((s, i) => (<ListView key={s.src}
                     id={i} title={s.title}
                     soundURL={s.soundURL}
                     soundStartAt={s.soundStartAt}
@@ -686,6 +864,15 @@ function App() {
                     link={s.link} linkText={s.linkText}
                     type={s.type} velocity={0.1}
                     detail={s.detail} src={s.src} />))
+                    : source.map((s, i) => (<ListView key={s.src}
+                        id={i} title={s.title}
+                        soundURL={s.soundURL}
+                        soundStartAt={s.soundStartAt}
+                        soundName={s.soundName}
+                        lastView={s.lastView}
+                        link={s.link} linkText={s.linkText}
+                        type={s.type} velocity={0.1}
+                        detail={s.detail} src={s.src} />))
             }
             {
                 ThankList.map((t, i) => (
@@ -750,14 +937,14 @@ function Modal() {
     )
 }
 
-if(window.innerWidth < 600){
+if (window.innerWidth < 600) {
     confirm("Sử dụng máy tính, máy tính bảng để xem nội dung này!\nUse a computer or tablet to view this content!")
     root.render(
         <React.StrictMode>
-           <div style={{padding: '12px', display: 'flex', flexWrap: 'wrap'}}>
-            Nội dung không hiển thị trên thiết bị này
-            <br/>The content is not displayed on this device
-            </div> 
+            <div style={{ padding: '12px', display: 'flex', flexWrap: 'wrap' }}>
+                Nội dung không hiển thị trên thiết bị này
+                <br />The content is not displayed on this device
+            </div>
         </React.StrictMode>
     );
 }
@@ -810,68 +997,76 @@ var Camera = false;
 
 function predictWebcam() {
     // Now let's start classifying a frame in the stream.
-    model.detect(video).then(function (predictions) {
-        // Remove any highlighting we did previous frame.
-        for (let i = 0; i < children.length; i++) {
-            liveView.removeChild(children[i]);
-        }
-        children.splice(0);
-
-        // Now lets loop through predictions and draw them to the live view if
-        // they have a high confidence score.
-        for (let n = 0; n < predictions.length; n++) {
-            // If we are over 66% sure we are sure we classified it right, draw it!
-            if (predictions[n].score > 0.6) {
-
-                if (predictions[n].class == "cell phone") {
-                    root.render(
-                        <React.StrictMode>
-                            <Modal />
-                        </React.StrictMode>);
-                }
-                else if (predictions[n].class == " ") {
-                    root.render(
-                        <React.StrictMode>
-                            <Modal />
-                        </React.StrictMode>);
-                }
-
-                const p = document.createElement('p');
-                p.innerText = predictions[n].class + ' - with '
-                    + Math.round(parseFloat(predictions[n].score) * 100)
-                    + '% confidence.';
-                p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
-                    + (predictions[n].bbox[1] - 10) + 'px; width: '
-                    + (predictions[n].bbox[2] - 10) + 'px; top: 0; left: 0;';
-
-                const highlighter = document.createElement('div');
-                highlighter.setAttribute('class', 'highlighter');
-                highlighter.style = 'left: ' + predictions[n].bbox[0] + 'px; top: '
-                    + predictions[n].bbox[1] + 'px; width: '
-                    + predictions[n].bbox[2] + 'px; height: '
-                    + predictions[n].bbox[3] + 'px;';
-
-                liveView.appendChild(highlighter);
-                liveView.appendChild(p);
-                children.push(highlighter);
-                children.push(p);
+    if (model.detect(video)) {
+        model.detect(video).then(function (predictions) {
+            // Remove any highlighting we did previous frame.
+            for (let i = 0; i < children.length; i++) {
+                liveView.removeChild(children[i]);
             }
-        }
-        // Call this function again to keep predicting when the browser is ready.
-        requestAnimationFrame(predictWebcam);
-    });
+            children.splice(0);
+
+            // Now lets loop through predictions and draw them to the live view if
+            // they have a high confidence score.
+            for (let n = 0; n < predictions.length; n++) {
+                // If we are over 66% sure we are sure we classified it right, draw it!
+                if (predictions[n].score > 0.6) {
+
+                    if (predictions[n].class == "cell phone") {
+                        root.render(
+                            <React.StrictMode>
+                                <Modal />
+                            </React.StrictMode>);
+                    }
+                    else if (predictions[n].class == " ") {
+                        root.render(
+                            <React.StrictMode>
+                                <Modal />
+                            </React.StrictMode>);
+                    }
+
+                    const p = document.createElement('p');
+                    p.innerText = predictions[n].class + ' - with '
+                        + Math.round(parseFloat(predictions[n].score) * 100)
+                        + '% confidence.';
+                    p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
+                        + (predictions[n].bbox[1] - 10) + 'px; width: '
+                        + (predictions[n].bbox[2] - 10) + 'px; top: 0; left: 0;';
+
+                    const highlighter = document.createElement('div');
+                    highlighter.setAttribute('class', 'highlighter');
+                    highlighter.style = 'left: ' + predictions[n].bbox[0] + 'px; top: '
+                        + predictions[n].bbox[1] + 'px; width: '
+                        + predictions[n].bbox[2] + 'px; height: '
+                        + predictions[n].bbox[3] + 'px;';
+
+                    liveView.appendChild(highlighter);
+                    liveView.appendChild(p);
+                    children.push(highlighter);
+                    children.push(p);
+                }
+            }
+            // Call this function again to keep predicting when the browser is ready.
+            requestAnimationFrame(predictWebcam);
+        });
+    }
+    else {
+        root.render(
+            <React.StrictMode>
+                <Modal />
+            </React.StrictMode>);
+    }
 }
 
 onload = () => {
-    if(window.innerWidth >= 600)  enableCam();
+    if (innerWidth >= 600) enableCam();
 }
 
 if (!sessionStorage.getItem("uid")) {
-    alert('Please Log In')
-    window.location.href = './login.html'
-    root.render('Loading...')
+    confirm('Please Log In')
+    window.location.href = './pages/login.html'
+    root.render('Loading content...')
 }
-else if(window.innerWidth >= 600){
+else if (window.innerWidth >= 600) {
     root.render(
         <React.StrictMode>
             <Modal />
@@ -912,3 +1107,27 @@ document.addEventListener('keydown', (e) => {
         e.stopImmediatePropagation();
     }
 });
+
+document.body.oncontextmenu = () => false
+
+document.onkeydown = function (e) {
+    if (e.ctrlKey &&
+        (e.keyCode === 67 ||
+            e.keyCode === 86 ||
+            e.keyCode === 85 ||
+            e.keyCode === 117)) {
+        alert('not allowed');
+        return false;
+
+    } else if (e.keyCode == 123) { // Prevent F12
+        alert('not allowed');
+        return false;
+    } else if (e.ctrlKey && e
+        .shiftKey && e.keyCode == 73) {
+        // Prevent Ctrl+Shift+I 
+        alert('not allowed');
+        return false;
+    } else {
+        return true;
+    }
+};
