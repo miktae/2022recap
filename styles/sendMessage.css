@@ -1,9 +1,30 @@
  @import url('https://fonts.googleapis.com/css2?family=Markazi+Text&family=Roboto+Flex:opsz,wght@8..144,600&display=swap');
 
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
  .feels {
      padding: 2%;
      height: 30vh;
  }
+ 
+ .luta-tet-left{
+    position:fixed;
+    top:29%;
+    left: 0%;;
+    z-index:0;
+    }
+    .luta-tet-left img, .luta-tet-right img{
+       width: 38%;
+    }
+    .luta-tet-right{
+        position:fixed;
+        top:29%;
+        right: -10%;
+        z-index:0;
+    }
 
  #counter {
      color: rgb(243, 5, 5);

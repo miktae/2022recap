@@ -6,12 +6,12 @@ import { storage } from './firebase.js'
 const video = document.getElementById('video')
 
 Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri('https://miktae.github.io/2022recap/models/'),
-    faceapi.nets.faceLandmark68Net.loadFromUri('https://miktae.github.io/2022recap/models/'),
-    faceapi.nets.faceRecognitionNet.loadFromUri('https://miktae.github.io/2022recap/models/'),
-    faceapi.nets.ageGenderNet.loadFromUri('https://miktae.github.io/2022recap/models/'),
-    faceapi.nets.ssdMobilenetv1.loadFromUri('https://miktae.github.io/2022recap/models/'),
-    faceapi.nets.faceExpressionNet.loadFromUri('https://miktae.github.io/2022recap/models/')
+    faceapi.nets.tinyFaceDetector.loadFromUri('https://miktae.github.io/2022review/models/'),
+    faceapi.nets.faceLandmark68Net.loadFromUri('https://miktae.github.io/2022review/models/'),
+    faceapi.nets.faceRecognitionNet.loadFromUri('https://miktae.github.io/2022review/models/'),
+    faceapi.nets.ageGenderNet.loadFromUri('https://miktae.github.io/2022review/models/'),
+    faceapi.nets.ssdMobilenetv1.loadFromUri('https://miktae.github.io/2022review/models/'),
+    faceapi.nets.faceExpressionNet.loadFromUri('https://miktae.github.io/2022review/models/')
 ]).then(startVideo)
 
 function startVideo() {

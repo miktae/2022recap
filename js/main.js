@@ -1,5 +1,3 @@
-"use strict";
-
 const root = ReactDOM.createRoot(document.querySelector('#main'));
 const video = document.getElementById('webcam');
 const liveView = document.getElementById('liveView');
@@ -469,149 +467,18 @@ Cảm ơn thầy Nam và nhóm nghiên cứu: các anh Thiên, Đào Anh, và Th
 
 ]
 
-const sourceEn = [
-    {
-        type: 'image',
-        title: 'Dreams of Love',
-        soundURL: './assets/sounds/DoanKetMoi.mp3',
-        soundName: 'New Ending - Hoang Dung',
-        soundStartAt: 21,
-        // transform: 'X',
-        detail:
-            `This year, I met a lovely person.
-             It is true that going to Ha Pagoda is very reasonable for someone like me who has been absent for a long time...
-            `,
-        velocity: 0.01,
-        src: './assets/LuvDream/0.jpg'
-    },
-    {
-        type: 'image',
-        title: 'The 2022 Southeast Asian Games (2022 Southeast Asian Games)',
-        // transform: 'X',
-        soundURL: './assets/sounds/Let_sShine.mp3',
-        soundName: "Let's Shine (Let's Shine) - Huy Tuan",
-        soundStartAt: 46,
-        detail:
-            `SEA Games 31 is a multi-sport event taking place in Hanoi,
-             Vietnam in 2022. Originally scheduled to be held on May 21
-              From 11 to 2 December 2021, the congress moved the date to be held
-              changed from May 12 to 23, 2022 due to impact
-              of the COVID-19 pandemic. There are 40 sports, mainly
-              sport competed at the Asian Games and
-               Olympic.
-            `,
-        velocity: 0.001,
-        src: './assets/SEAGAMES/0.jpg'
-    },
-    {
-        type: 'image',
-        soundURL: './assets/sounds/Let_sShine.mp3',
-        soundName: "Let's Shine (Let's Shine) - Huy Tuan",
-        soundStartAt: 54,
-        // transform: 'X',
-        detail:
-            `Very honored and proud when I became a contributing volunteer
-            for this regional event.
-            `,
-        velocity: 0.001,
-        src: './assets/SEAGAMES/1.jpg'
-    },
-    {
-        type: 'image',
-        soundURL: './assets/sounds/Let_sShine.mp3',
-        soundName: "Let's Shine (Let's Shine) - Huy Tuan",
-        soundStartAt: 62,
-        // transform: 'X',
-        detail:
-            `I got to meet Southeast Asian athletes, Vietnam. With that,
-            shared Vietnamese culture.
-            `,
-        velocity: 0.001,
-        src: './assets/SEAGAMES/2.jpg'
-    },
-    {
-        type: 'video',
-
-        // transform: 'X',
-        detail:
-            `And very honored to meet the leaders of the Party and the City.
-            :))) The press took the photo, but I don't keep the photo.
-            `,
-        velocity: 0.001,
-        src: './assets/SEAGAMES/3.mp4'
-    },
-    {
-        type: 'image',
-        soundURL: './assets/sounds/Let_sShine.mp3',
-        soundStartAt: 70,
-        // transform: 'X',
-        detail:
-            `Certificate of
-            `,
-        velocity: 0.001,
-        src: './assets/SEAGAMES/Cer.png'
-    },
-    {
-        type: 'image',
-        soundURL: './assets/sounds/YetToCome.mp3',
-        soundName: "Yet To Come - BTS",
-        soundStartAt: 24,
-        title: 'TOEIC',
-        // transform: 'X',
-        detail:
-            `TOEIC, short for Test of English for International Communication – Test of English for International Communication, is an international English language certificate for communication for working people who are not native English speakers. students, especially those who want to use English in an international communication and working environment. The results of the TOEIC test reflect the level of proficiency when communicating in English
-             English in activities such as business, commerce, tourism.
-             \n I was fortunate to be guided and supported by Ms. Thanh Le, Toan Pham's friend, in the process of preparing for this international certification exam.
-            `,
-        velocity: 0.001,
-        link: 'https://www.facebook.com/ImaxToeic',
-        linkText: 'Imax Toeic',
-        src: './assets/TOEIC/toeic.jpg'
-    },
-    {
-        type: 'video',
-        soundURL: './assets/sounds/YetToCome.mp3',
-        soundName: "Yet To Come - BTS",
-        soundStartAt: 30,
-        title: 'Scientific Research',
-
-        // transform: 'X',
-        detail:
-            `With the theme using Image Processing, Artificial Intelligence
-in fruit classification, my group won the second prize at the school level.
-Thank you, Mr. Nam and Mr. Thien, Anh and Thuy!
-            `,
-        velocity: 0.001,
-        src: './assets/NCKH/1.mp4'
-    },
-    {
-        type: 'image',
-        soundURL: './assets/sounds/YetToCome.mp3',
-        soundName: "Yet To Come - BTS",
-        soundStartAt: 36,
-        title: 'Scientific Research',
-        // transform: 'X',
-        detail:
-            `Code is extremely difficult when combining PLC, Python and Web programming
-            `,
-        velocity: 0.001,
-        src: './assets/NCKH/1.jpg'
-    },
-    {
-        type: 'image',
-        soundURL: './assets/sounds/YetToCome.mp3',
-        soundName: "Yet To Come - BTS",
-        soundStartAt: 42,
-        // transform: 'X',
-        velocity: 0.001,
-    }
-]
-
 function TabBar() {
+    let trlts = React.useRef()
+
+    React.useEffect(() => {
+            new google.translate.TranslateElement({
+                pageLanguage: 'vi' }, 
+            trlts.current);
+    }, [])
+
     return (
         <div className="tab-bar" >
             <div className="tab-bar-inner">
-
                 <a href="./">2022 Review - Mik Tae</a>
             </div>
             <div className="tab-bar-inner">
@@ -628,10 +495,7 @@ function TabBar() {
             </div>
             <div className="tab-bar-inner">
                 <i class="fa-solid fa-language"></i>
-                {myParam == "en" ?
-                    <a href="./"> Tiếng Việt </a>
-                    : <a href="?lang=en"> English version </a>
-                }
+                <span  ref={trlts}></span>
             </div>
         </div>
     )
@@ -685,8 +549,6 @@ function ListView(props) {
         }
     }
 
-
-
     setInterval(() => {
         k -= props.velocity
         if (list && list.current)
@@ -705,22 +567,11 @@ function ListView(props) {
                 props.stopSound && audioRef.current
                 && audioRef.current.pause()
             }
-            {/* <div className="list-view-header">
-                <div className="list-view-title">
-                    <p>{props.title}</p>
-                </div>
-                <div className="list-view-detail">
-                    <p>{props.detail}</p>
-                    <a style={{
-                        fontSize: '1.3rem',
-                    }} href={props.link}>{props.linkText}</a>
-                </div>
-            </div> */}
             <div className="list-view-main">
 
                 {
                     props.type === 'image'
-                        ? <img ref={media}
+                        ? <img ref={media} loading="lazy"
                             controlsList="nodownload"
                             src={props.src}
                             alt={props.detail}
@@ -848,14 +699,13 @@ function ThankFor(props) {
     )
 }
 
-
 function App() {
     return (
         <div className="container-fluid">
             <NavBar></NavBar>
             <TabBar></TabBar>
             {
-                myParam == "en" ? sourceEn.map((s, i) => (<ListView key={s.src}
+                source.map((s, i) => (<ListView key={s.src}
                     id={i} title={s.title}
                     soundURL={s.soundURL}
                     soundStartAt={s.soundStartAt}
@@ -864,15 +714,6 @@ function App() {
                     link={s.link} linkText={s.linkText}
                     type={s.type} velocity={0.1}
                     detail={s.detail} src={s.src} />))
-                    : source.map((s, i) => (<ListView key={s.src}
-                        id={i} title={s.title}
-                        soundURL={s.soundURL}
-                        soundStartAt={s.soundStartAt}
-                        soundName={s.soundName}
-                        lastView={s.lastView}
-                        link={s.link} linkText={s.linkText}
-                        type={s.type} velocity={0.1}
-                        detail={s.detail} src={s.src} />))
             }
             {
                 ThankList.map((t, i) => (
@@ -937,7 +778,7 @@ function Modal() {
     )
 }
 
-if (window.innerWidth < 600) {
+if (innerWidth < 600) {
     confirm("Sử dụng máy tính, máy tính bảng để xem nội dung này!\nUse a computer or tablet to view this content!")
     root.render(
         <React.StrictMode>
@@ -947,6 +788,10 @@ if (window.innerWidth < 600) {
             </div>
         </React.StrictMode>
     );
+}
+
+if(k == 30000){
+    window.location.href = './sendMessage.html'
 }
 
 // Check if webcam access is supported.
@@ -1066,7 +911,7 @@ if (!sessionStorage.getItem("uid")) {
     window.location.href = './pages/login.html'
     root.render('Loading content...')
 }
-else if (window.innerWidth >= 600) {
+else if (innerWidth >= 600) {
     root.render(
         <React.StrictMode>
             <Modal />
@@ -1099,7 +944,7 @@ document.addEventListener('keyup', (e) => {
 });
 
 /** TO DISABLE PRINTS WHIT CTRL+P **/
-document.addEventListener('keydown', (e) => {
+/* document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key == 'p') {
         alert('This section is not allowed to print or export to PDF');
         e.cancelBubble = true;
@@ -1130,4 +975,4 @@ document.onkeydown = function (e) {
     } else {
         return true;
     }
-};
+}; */

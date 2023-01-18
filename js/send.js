@@ -1,5 +1,10 @@
 import { addDoc, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { db } from './firebase.js'
+import {
+    ref,
+    uploadBytesResumable,
+    getDownloadURL
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js";
+import { db, storage } from './firebase.js'
 import { createPopup } from 'https://unpkg.com/@picmo/popup-picker@latest/dist/index.js?module';
 
 let sendBtn = document.getElementById('sendBtn');
@@ -105,8 +110,6 @@ const record = document.querySelector('#record');
 
 let nOfClick = 0;
 
-//main block for doing the audio recording
-
 if (navigator.mediaDevices.getUserMedia) {
     console.log('getUserMedia supported.');
 
@@ -131,11 +134,13 @@ if (navigator.mediaDevices.getUserMedia) {
                 console.log(mediaRecorder.state);
                 console.log("recorder stopped");
                 record.style.color = "";
-                
+
             }
         }
 
         mediaRecorder.onstop = function (e) {
+            let name = sessionStorage.getItem("userName");
+            const storageRef = ref(storage, `files/audios/${name}`);
             console.log("data available after MediaRecorder.stop() called.");
 
             const blob = new Blob(chunks, { 'type': 'audio/ogg; codecs=opus' });
@@ -143,9 +148,19 @@ if (navigator.mediaDevices.getUserMedia) {
             const audioURL = window.URL.createObjectURL(blob);
             console.log("recorder stopped");
             document.getElementById("textAreaContent")
-            .classList.remove("hidden");
+                .classList.remove("hidden");
             document.getElementById("textAreaContent")
                 .src = audioURL;
+            console.log(audioURL);
+
+            const metadata = {
+                contentType: 'audio/mpeg',
+            };
+
+            uploadBytesResumable(storageRef, audioURL, metadata).
+                then((snapshot) => {
+                    console.log('Uploaded a data_url string!');
+                })
         }
 
         mediaRecorder.ondataavailable = function (e) {
@@ -163,3 +178,46 @@ if (navigator.mediaDevices.getUserMedia) {
     console.log('getUserMedia not supported on your browser!');
 }
 
+let fileComponent = document.getElementById('file');
+let file
+
+fileComponent.onchange = (e) => {
+    file = e.target.files[0];
+    console.log(file);
+    uploadFiles(file);
+}
+
+const uploadFiles = (file) => {
+    if (!file) return null;
+    const storageRef = ref(storage, `files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    const postsCollectionRef = collection(db,
+        sessionStorage.getItem('userName') + "'s_posts");
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const prog = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+        },
+        (error) => console.log(error),
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                let img = document.createElement('img');
+                img.src = downloadURL;
+                img.style.width = '100px';
+                document.getElementById('imgPreview').appendChild(img)
+                addDoc(postsCollectionRef, {
+                    uploadAt: new Date(),
+                    imageSrc: downloadURL,
+                    username: sessionStorage.getItem('userName')
+                })
+            });
+        }
+    );
+};
+
+if (!sessionStorage.getItem("uid")) {
+    confirm('Please Log In')
+    window.location.href = './login.html'
+}
