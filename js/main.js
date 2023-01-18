@@ -18,11 +18,10 @@ function LogOutBtn() {
     }, [logoutText])
 
     return (
-        <div className="logout-btn">
+        <div className="d-flex flex-column logout-btn">
             <div className="d-flex flex-column">
                 <p style={{
                     marginTop: '0.3%',
-                    padding: '0 3%',
                     fontSize: '1.5rem',
                     fontWeight: '600'
                 }}>User: {sessionStorage.getItem('userName')}</p>
@@ -471,8 +470,9 @@ function TabBar() {
     let trlts = React.useRef()
 
     React.useEffect(() => {
-            new google.translate.TranslateElement({
-                pageLanguage: 'vi' }, 
+        new google.translate.TranslateElement({
+            pageLanguage: 'vi'
+        },
             trlts.current);
     }, [])
 
@@ -495,7 +495,7 @@ function TabBar() {
             </div>
             <div className="tab-bar-inner">
                 <i class="fa-solid fa-language"></i>
-                <span  ref={trlts}></span>
+                <span ref={trlts}></span>
             </div>
         </div>
     )
@@ -507,6 +507,8 @@ function ListView(props) {
     let list = React.useRef()
     let media = React.useRef()
     let audioRef = React.useRef()
+    let like = React.useRef()
+    const [nclick, setnClick] = React.useState(0)
     const [expand, setExpand] = React.useState(false)
 
     let scale = 1, maxScale = 2.5, minScale = 0.5
@@ -547,6 +549,28 @@ function ListView(props) {
         if (isPlaying) {
             audioRef.current.pause()
         }
+    }
+
+    const Like = (id) => {
+        setnClick(nclick + 1)
+        console.log(nclick);
+        if (!(nclick % 2)) {
+            like.current.style.color = 'red'
+            like.current.classList.remove("fa-regular")
+            like.current.classList.add("fa-solid")
+            console.log(id, sessionStorage.getItem('userName'));
+        }
+        else {
+            like.current.style.color = ''
+            like.current.classList.remove("fa-solid")
+            like.current.classList.add("fa-regular")
+            console.log(id, sessionStorage.getItem('userName'));
+        }
+    }
+
+    const Comment = (id) => {
+        window.location.href = './pages/sendMessage.html'
+        console.log('cmt', id, sessionStorage.getItem('userName'));
     }
 
     setInterval(() => {
@@ -617,6 +641,20 @@ function ListView(props) {
                         <span className="soundname">
                             {props.soundName}</span>
                     </p>}
+                </div>
+            </div>
+            <div className="list-view-emotion">
+                <div onClick={() => Like(props.id)}
+                 className="list-view-emotion-item">
+                    <i ref={like}
+                        className="fa-regular fa-heart"
+                    ></i>
+                    <p> Likes</p>
+                </div>
+                <div onClick={() => Comment(props.id)}
+                 className="list-view-emotion-item">
+                    <i className="fa-regular fa-comment"></i>
+                    <p> Comments</p>
                 </div>
             </div>
             <audio controlsList="nodownload"
@@ -791,7 +829,7 @@ if (innerWidth < 600) {
     );
 }
 
-if(k == 30000){
+if (k == 30000) {
     window.location.href = './sendMessage.html'
 }
 
@@ -856,14 +894,7 @@ function predictWebcam() {
             for (let n = 0; n < predictions.length; n++) {
                 // If we are over 66% sure we are sure we classified it right, draw it!
                 if (predictions[n].score > 0.6) {
-
-                    if (predictions[n].class == "cell phone") {
-                        root.render(
-                            <React.StrictMode>
-                                <Modal />
-                            </React.StrictMode>);
-                    }
-                    else if (predictions[n].class == " ") {
+                    if (predictions[n].class != "person") {
                         root.render(
                             <React.StrictMode>
                                 <Modal />

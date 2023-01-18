@@ -89,6 +89,7 @@ video::-webkit-media-controls-panel {
 .tab-bar {
     position: relative;
     width: fit-content;
+    border-right: #978d8da3 1px solid;
 }
 
 .tab-bar a {
@@ -116,18 +117,23 @@ video::-webkit-media-controls-panel {
 
 .logout-btn {
     z-index: 1;
-    width: 22%;
     display: flex;
     justify-content: end;
-    align-items: center;
+    align-items: flex-end;
     color: #f5f2f2;
 }
 
+.logout-btn button{
+    width: fit-content;
+}
+
 .list-view {
+    margin-bottom: 2%;
     z-index: 0;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     transition: all 0.001s ease-in-out;
 }
 
@@ -148,6 +154,12 @@ video {
     width: 100%;
     height: 80%;
     border-radius: 0.3rem;
+}
+
+.list-view-emotion-item{
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 .thanks-view {
@@ -283,7 +295,7 @@ body.dark a {
 
 .modal-container {
     display: flex;
-    margin-left: 20%;
+    margin-left: 16%;
     flex-wrap: wrap;
 }
 
@@ -292,15 +304,20 @@ body.dark a {
 }
 
 .soundname {
-    animation: rightToLeft 0.5s linear infinite;
+    margin-top: -30%;
+    display: inline-block;
+    animation: rightToLeft 9s linear infinite;
 }
 
 @keyframes rightToLeft {
     0% {
-        transform: translateX(100%);
+        transform: translateX(16px);
+    }
+    50% {
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-10px);
     }
 }
 
