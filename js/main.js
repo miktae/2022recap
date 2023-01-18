@@ -614,7 +614,8 @@ function ListView(props) {
                     {props.soundName && <p>
                         <i className="fas fa-music"></i>
                         &nbsp;
-                        {props.soundName}
+                        <span className="soundname">
+                            {props.soundName}</span>
                     </p>}
                 </div>
             </div>
@@ -943,8 +944,8 @@ document.addEventListener('keyup', (e) => {
     }
 });
 
-/** TO DISABLE PRINTS WHIT CTRL+P **/
-/* document.addEventListener('keydown', (e) => {
+/*  TO DISABLE PRINTS WHIT CTRL+P **/
+document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key == 'p') {
         alert('This section is not allowed to print or export to PDF');
         e.cancelBubble = true;
@@ -975,4 +976,4 @@ document.onkeydown = function (e) {
     } else {
         return true;
     }
-}; */
+}; 

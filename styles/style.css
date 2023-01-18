@@ -77,30 +77,32 @@ video::-webkit-media-controls-panel {
     padding: 2%;
 }
 
-.navbar{
+.navbar {
     width: 100%
 }
 
-.navbar, .tab-bar {
+.navbar,
+.tab-bar {
     z-index: 1;
 }
 
-.tab-bar{
+.tab-bar {
     position: relative;
     width: fit-content;
 }
 
-.tab-bar a{
+.tab-bar a {
     text-decoration: none;
     font-size: 1.3em;
 }
 
-.tab-bar-inner{
+.tab-bar-inner {
     padding: 2%;
 }
 
-.tab-bar-inner .fa,.tab-bar-inner .fa-solid{
-   font-size: 1.3rem;
+.tab-bar-inner .fa,
+.tab-bar-inner .fa-solid {
+    font-size: 1.3rem;
 }
 
 .link {
@@ -193,7 +195,8 @@ video {
     }
 }
 
-body.dark,  body.dark a{
+body.dark,
+body.dark a {
     background-color: #121212;
     color: #fff;
 }
@@ -288,11 +291,25 @@ body.dark,  body.dark a{
     padding: 1em;
 }
 
+.soundname {
+    animation: rightToLeft 0.5s linear infinite;
+}
+
+@keyframes rightToLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 @media only screen and (max-width: 768px) {
-    .list-view{
+    .list-view {
         align-items: center;
     }
-    .list-view-main{
+
+    .list-view-main {
         width: 50%;
     }
 }
