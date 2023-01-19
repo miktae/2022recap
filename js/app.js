@@ -85,8 +85,6 @@ function validURL(str) {
 }
 
 goBtn.onclick = () => {
-    const usersCollectionRef = collection(db, "users");
-    // console.log(q);
     if (socialLink.value.length <= 0
         || userName.value.length <= 0) {
         alert('Please enter your information')
@@ -94,12 +92,7 @@ goBtn.onclick = () => {
     else if (!InFriends(socialLink.value)){
      alert('An error happened')
     }
-    else if(!isNaN(socialLink) || 
-    InFriends(socialLink.value)) {
-        const q = query(usersCollectionRef, where("userName",
-            "==", userName.value));
-        onSnapshot(q, (snapshot) => {
-            if (snapshot.docs.length >= 0) {
+    else if(InFriends(socialLink.value)) {
                 try {
                     const docRef = addDoc(collection(db, "users"), {
                         socialLink: socialLink.value,
@@ -118,8 +111,6 @@ goBtn.onclick = () => {
                 } catch (e) {
                     console.error("Error adding document: ", e);
                 }
-            }
-        })
     }
 
 }

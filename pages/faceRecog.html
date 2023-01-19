@@ -6,68 +6,48 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Face detection</title>
-  <style>
-    video {
-      width: 30%;
-      margin: 3%;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    button {
-      padding: 0.5rem;
-      height: 2rem;
-      cursor: pointer;
-      margin-left: 2rem;
-      text-align: center;
-    }
-
-    .loading {
-      /* Light grey */
-      border-top: 0.3em solid #3487db;
-      /* Blue */
-      border-radius: 50%;
-      width: 6rem;
-      height: 6rem;
-      animation: spin 2s linear infinite;
-      text-align: center;
-      margin-left: 43%;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    .none {
-      display: none;
-    }
-
-  </style>
+  <link rel="stylesheet" href="../styles/recog.css">
 </head>
 
 <body>
   <div class="loading" id="loading">
 
   </div>
-  <video class="none" id="video" autoplay></video>
-  <button class="none" id="takePhotoBtn">Take a photo</button>
-  <canvas id="canvas" style="display: none; overflow:auto"></canvas>
+  <div>
+    Tiến sát camera để khuôn mặt toàn bộ trong khung hình
+    => Sau khi nhận dạng, ấn nút Take a photo để đến bước tiếp theo
+    => Hình ảnh được đảm bảo các quyền
+  </div>
+  <div id="googleTranslateElement"></div>
+  <div class="main">
+    <video id="video" width="480px" height="540px" autoplay></video>
+    <canvas id="canvas"
+    width="480px" height="540px" class="none" style="overflow:auto"></canvas>
+    <div class="view">
+      <div>
+        <button id="takePhotoBtn" class="none">Take a photo</button>
+      </div>
+      <div id="er"></div>
+      <div id="result">
+        Tên:<p id="name"> </p>
+        Tuổi: <p id="age"></p>
+        Giới tính: <p id="gender"></p>
+        Cảm xúc: <p id="expression"></p>
+      </div>
+    </div>
+  </div>
+
   <script defer src="../js/face-api.min.js"></script>
   <script type="module" defer src="../js/recog.js"></script>
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'vi'
+      }, document.querySelector("#googleTranslateElement"));
+    }
+  </script>
 </body>
 
 </html>
