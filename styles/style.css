@@ -272,7 +272,7 @@ body.dark a {
     display: flex;
     position: absolute;
     left: 80%;
-    top: 80%;
+    top: 40vh;
     right: 0;
 }
 

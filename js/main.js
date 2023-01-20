@@ -645,14 +645,14 @@ function ListView(props) {
             </div>
             <div className="list-view-emotion">
                 <div onClick={() => Like(props.id)}
-                 className="list-view-emotion-item">
+                    className="list-view-emotion-item">
                     <i ref={like}
                         className="fa-regular fa-heart"
                     ></i>
                     <p> Likes</p>
                 </div>
                 <div onClick={() => Comment(props.id)}
-                 className="list-view-emotion-item">
+                    className="list-view-emotion-item">
                     <i className="fa-regular fa-comment"></i>
                     <p> Comments</p>
                 </div>
@@ -817,18 +817,6 @@ function Modal() {
     )
 }
 
-if (innerWidth < 600) {
-    confirm("Sử dụng máy tính, máy tính bảng để xem nội dung này!\nUse a computer or tablet to view this content!")
-    root.render(
-        <React.StrictMode>
-            <div style={{ padding: '12px', display: 'flex', flexWrap: 'wrap' }}>
-                Nội dung không hiển thị trên thiết bị này
-                <br />The content is not displayed on this device
-            </div>
-        </React.StrictMode>
-    );
-}
-
 if (k == 30000) {
     window.location.href = './sendMessage.html'
 }
@@ -893,7 +881,7 @@ function predictWebcam() {
             // they have a high confidence score.
             for (let n = 0; n < predictions.length; n++) {
                 // If we are over 66% sure we are sure we classified it right, draw it!
-                if (predictions[n].score > 0.6) {
+                if (predictions[n].score > 0.66) {
                     if (predictions[n].class != "person") {
                         root.render(
                             <React.StrictMode>
@@ -939,9 +927,22 @@ onload = () => {
 }
 
 if (!sessionStorage.getItem("uid")) {
-    confirm('Please Log In')
-    window.location.href = './pages/login.html'
-    root.render('Loading content...')
+    if (innerWidth < 600) {
+        confirm("Sử dụng máy tính, máy tính bảng để xem nội dung này!\nUse a computer or tablet to view this content!")
+        root.render(
+            <React.StrictMode>
+                <div style={{ padding: '12px', display: 'flex', flexWrap: 'wrap' }}>
+                    Nội dung không hiển thị trên thiết bị này
+                    <br />The content is not displayed on this device
+                </div>
+            </React.StrictMode>
+        );
+    }
+    else {
+        confirm('Please Log In')
+        window.location.href = './pages/login.html'
+        root.render('Loading content...')
+    }
 }
 else if (innerWidth >= 600) {
     root.render(
